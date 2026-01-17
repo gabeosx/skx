@@ -7,7 +7,7 @@ Setting up the basic project structure, dependencies, and build configuration.
     - [ ] `npm init -y`
     - [ ] Install production dependencies: `commander`, `@clack/prompts`, `zod`, `axios`, `chalk`, `conf`, `fs-extra`.
     - [ ] Install dev dependencies: `typescript`, `vitest`, `ts-node`, `eslint`, `prettier`.
-- [ ] Task: Configure TypeScript, ESLint, and Prettier.
+- [x] Task: Configure TypeScript, ESLint, and Prettier. 115ecbb
     - [ ] Initialize `tsconfig.json`.
     - [ ] Set up ESLint and Prettier configs based on project style guides.
 - [ ] Task: Create basic directory structure and entry point.
