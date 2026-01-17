@@ -30,7 +30,7 @@ Implementing the core CLI logic and fetching the skills registry.
 - [x] Task: Implement Search Functionality. 8c5939d
     - [ ] Write Tests: Test search logic with various queries (exact match, partial match, case-insensitive).
     - [ ] Implement Feature: Add `searchSkills` utility and integrate it into the `search` command.
-- [ ] Task: Implement Basic Interactive Mode (Clack).
+- [x] Task: Implement Basic Interactive Mode (Clack). b6621f6
     - [ ] Write Tests: Verify interactive mode is triggered when no arguments are passed.
     - [ ] Implement Feature: Use Clack to provide a simple "Welcome" and search prompt in interactive mode.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: CLI Interface & Registry Integration' (Protocol in workflow.md)
