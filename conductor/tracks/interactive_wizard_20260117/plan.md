@@ -10,13 +10,13 @@ Focus on robust detection of AI agents and installation scopes.
 - [x] Task: Write tests for `ScopeResolver` and updated `FrameworkResolver`. bef6b9c
 - [x] Task: Conductor - User Manual Verification 'Enhanced Environment Detection' (Protocol in workflow.md) 8e5478e
 
-## Phase 2: Live Search Component
+## Phase 2: Live Search Component [checkpoint: 4e9e18b]
 Implement the interactive skill discovery interface.
 
 - [x] Task: Create a `SkillSearch` component/function using `Clack` that allows real-time filtering of the registry. fcd9de1
 - [x] Task: Update `src/utils/search.ts` if needed to support efficient filtering for the TUI. fcd9de1
 - [x] Task: Write unit tests for the filtering logic in `SkillSearch`. fcd9de1
-- [ ] Task: Conductor - User Manual Verification 'Live Search Component' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Live Search Component' (Protocol in workflow.md) 4e9e18b
 
 ## Phase 3: Interactive Wizard Flow
 Assemble the steps: Search -> Agent -> Scope -> Confirmation.
