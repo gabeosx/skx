@@ -22,7 +22,5 @@ Goal: Connect the downloader to the installation CLI flow.
 ## Phase 3: Final Verification
 Goal: Ensure the system works with real-world registry data.
 
-- [ ] Task: End-to-End Smoke Test with the `pptx` skill.
-    - [ ] Run `skx install pptx` in a test environment.
-    - [ ] Verify the files are correctly downloaded from the monorepo subdirectory.
+- [x] Task: End-to-End Smoke Test with the `pptx` skill. 5892b09
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Final Verification' (Protocol in workflow.md)
