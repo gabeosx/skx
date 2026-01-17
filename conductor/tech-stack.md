@@ -11,7 +11,6 @@
 ## Utilities & Libraries
 - **Zod:** For schema validation (e.g., validating the `skills.json` registry and user configuration).
 - **Axios / Undici:** For fetching the `skills.json` registry from GitHub.
-- **Conf:** For managing user configuration and persistent state across different scopes.
 - **fs-extra:** For simplified file system operations when installing/uninstalling skills.
 
 ## Testing & Quality
