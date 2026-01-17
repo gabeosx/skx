@@ -11,8 +11,8 @@
     - [x] Implement `ClaudeAdapter.uninstallSkill`.
     - [x] Implement `CodexAdapter.listSkills`.
     - [x] Implement `CodexAdapter.uninstallSkill`.
-- [ ] Task: Create `SkillManager` class (or update existing utility) to orchestrate detection.
-    - [ ] Implement `detectInstalledSkills(filter?: { agent?: string, scope?: string })` to scan all locations.
+- [x] Task: Create `SkillManager` class (or update existing utility) to orchestrate detection. 77d37d8
+    - [x] Implement `detectInstalledSkills(filter?: { agent?: string, scope?: string })` to scan all locations.
 
 ## Phase 2: CLI Commands Implementation
 - [ ] Task: Implement `skx list` command using Commander.js.
