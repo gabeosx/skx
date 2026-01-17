@@ -40,7 +40,7 @@ describe('CLI install command', () => {
     };
 
     (FrameworkResolver.prototype.resolve as any).mockResolvedValue(mockAdapter);
-    (SkillInstaller.prototype.install as any).mockResolvedValue(undefined);
+    (SkillInstaller.prototype.installFromUrl as any).mockResolvedValue(undefined);
 
     vi.spyOn(process, 'cwd').mockReturnValue('/cwd');
 
@@ -48,7 +48,7 @@ describe('CLI install command', () => {
 
     expect(FrameworkResolver.prototype.resolve).toHaveBeenCalledWith('/cwd', undefined);
     expect(mockAdapter.getInstallationPath).toHaveBeenCalledWith(Scope.Workspace, '/cwd');
-    expect(SkillInstaller.prototype.install).toHaveBeenCalled();
+    expect(SkillInstaller.prototype.installFromUrl).toHaveBeenCalledWith('https://github.com/test/skill', '/mock/path');
   });
 
   it('should accept --framework and --scope flags', async () => {
@@ -62,7 +62,7 @@ describe('CLI install command', () => {
     };
 
     (FrameworkResolver.prototype.resolve as any).mockResolvedValue(mockAdapter);
-    (SkillInstaller.prototype.install as any).mockResolvedValue(undefined);
+    (SkillInstaller.prototype.installFromUrl as any).mockResolvedValue(undefined);
 
     await program.parseAsync(['node', 'test', 'install', 'test-skill', '--framework', 'claude', '--scope', 'user']);
 

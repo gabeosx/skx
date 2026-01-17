@@ -79,18 +79,11 @@ export function createProgram(): Command {
         const scope = options.scope === 'user' ? Scope.User : Scope.Workspace;
         const targetPath = await adapter.getInstallationPath(scope, process.cwd());
         
-        // TODO: In a real implementation, we would download the skill here.
-        // For now, we simulate by assuming it's available or using a placeholder source.
-        // This track focuses on the DISCOVERY and INSTALLATION plumbing.
-        s.start(`Installing to ${targetPath}...`);
+        s.start(`Downloading and installing to ${targetPath}...`);
         spinnerStarted = true;
         
         const installer = new SkillInstaller();
-        // Placeholder source path for now as downloading is out of scope for this specific task
-        // but required for the installer to run. 
-        // We'll use a dummy source if it doesn't exist to avoid crashing during this phase.
-        const dummySource = '/tmp/skx-dummy-source';
-        await installer.install(dummySource, targetPath);
+        await installer.installFromUrl(skill.githubRepoUrl, targetPath);
         
         s.stop(`Successfully installed ${skill.name}!`);
         spinnerStarted = false;
