@@ -18,14 +18,14 @@ Implement the interactive skill discovery interface.
 - [x] Task: Write unit tests for the filtering logic in `SkillSearch`. fcd9de1
 - [x] Task: Conductor - User Manual Verification 'Live Search Component' (Protocol in workflow.md) 4e9e18b
 
-## Phase 3: Interactive Wizard Flow
+## Phase 3: Interactive Wizard Flow [checkpoint: dcb94ba]
 Assemble the steps: Search -> Agent -> Scope -> Confirmation.
 
 - [x] Task: Implement the main `wizard` function in `src/ui.ts` (or a new file `src/wizard.ts`). ac20e0f
 - [x] Task: Implement "Smart Defaults" logic where the user can accept detected values or override them. ac20e0f
 - [x] Task: Implement the "Confirmation Summary" screen before proceeding to installation. ac20e0f
 - [x] Task: Write integration tests for the wizard state machine (mocking `Clack` inputs). ac20e0f
-- [ ] Task: Conductor - User Manual Verification 'Interactive Wizard Flow' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Interactive Wizard Flow' (Protocol in workflow.md) dcb94ba
 
 ## Phase 4: Installation Integration & Cleanup
 Connect the wizard to the actual installation logic.
