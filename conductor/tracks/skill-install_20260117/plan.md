@@ -25,7 +25,7 @@ Goal: Implement specific adapters for Gemini, Claude, and Codex.
     - [ ] Write failing tests for detection and path resolution (handling .claude and .github)
     - [ ] Implement detection and path resolution logic
     - [ ] Verify tests pass
-- [ ] Task: Implement `CodexAdapter`
+- [x] Task: Implement `CodexAdapter` 0149f19
     - [ ] Write failing tests for detection and path resolution
     - [ ] Implement detection and path resolution logic
     - [ ] Verify tests pass
