@@ -16,7 +16,7 @@ I want to build a cli tool called `skx` for managing Agent Skills (https://agent
 - **Dual Interface:** Support for both standard CLI arguments and an interactive TUI mode.
 - **Interactive Wizard:** A step-by-step wizard for installing and configuring skills in interactive mode.
 - **Scoped Installation:** Support for installing skills at different levels: Workspace, User (home directory), or System-wide.
-- **Registry Integration:** Search and view detailed information for skills hosted in the official `agentskills.io` registry.
+- **Registry Integration:** Search and view detailed information for skills (including package names and repository URLs) hosted in the official `agentskills.io` registry.
 - **Lifecycle Management:** Manual commands for updating installed skills (`skx update`) and performing clean uninstalls that remove all associated configurations.
 
 ## Distribution
