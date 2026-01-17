@@ -21,7 +21,7 @@ Setting up the basic project structure, dependencies, and build configuration.
 ## Phase 2: CLI Interface & Registry Integration
 Implementing the core CLI logic and fetching the skills registry.
 
-- [ ] Task: Define Registry Schema and Fetching Logic.
+- [x] Task: Define Registry Schema and Fetching Logic. f339033
     - [ ] Write Tests: Define expected schema for `skills.json` and mock network responses.
     - [ ] Implement Feature: Use Zod to define the schema and Axios to fetch/parse the registry.
 - [ ] Task: Implement Basic Commander.js CLI.
