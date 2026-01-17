@@ -18,7 +18,7 @@ Setting up the basic project structure, dependencies, and build configuration.
     - [ ] Create a "smoke test" to ensure the test environment is working.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding' (Protocol in workflow.md)
 
-## Phase 2: CLI Interface & Registry Integration
+## Phase 2: CLI Interface & Registry Integration [checkpoint: 7216492]
 Implementing the core CLI logic and fetching the skills registry.
 
 - [x] Task: Define Registry Schema and Fetching Logic. f339033
@@ -33,4 +33,4 @@ Implementing the core CLI logic and fetching the skills registry.
 - [x] Task: Implement Basic Interactive Mode (Clack). b6621f6
     - [ ] Write Tests: Verify interactive mode is triggered when no arguments are passed.
     - [ ] Implement Feature: Use Clack to provide a simple "Welcome" and search prompt in interactive mode.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: CLI Interface & Registry Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: CLI Interface & Registry Integration' (Protocol in workflow.md)
