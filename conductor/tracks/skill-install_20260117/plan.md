@@ -40,7 +40,7 @@ Goal: Implement the high-level logic for resolving which framework to use.
 ## Phase 4: Installation & File Management
 Goal: Implement the physical file copying and directory management.
 
-- [ ] Task: Implement `SkillInstaller`
+- [x] Task: Implement `SkillInstaller` 825a3a0
     - [ ] Write failing tests for directory creation and file copying
     - [ ] Implement logic to ensure target directory structure exists
     - [ ] Implement robust file copying from source to destination
