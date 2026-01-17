@@ -43,13 +43,9 @@ Goal: Implement the physical file copying and directory management.
 - [x] Task: Implement `SkillInstaller` 825a3a0
 - [x] Task: Conductor - User Manual Verification 'Phase 4: Installation & File Management' (Protocol in workflow.md) 8601f47
 
-## Phase 5: CLI Integration & E2E
+## Phase 5: CLI Integration & E2E [checkpoint: 43fb3ba]
 Goal: Connect the logic to the CLI and perform final verification.
 
 - [x] Task: Integrate with `skx install` command 16e0de7
-    - [ ] Update CLI command to use `FrameworkResolver` and `SkillInstaller`
-    - [ ] Implement post-install notification display
 - [x] Task: Integration Smoke Tests 0ddfb26
-    - [ ] Create test scenarios for each framework (Gemini, Claude, Codex)
-    - [ ] Verify directory creation and file copying in a temporary workspace
-- [ ] Task: Conductor - User Manual Verification 'Phase 5: CLI Integration & E2E' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 5: CLI Integration & E2E' (Protocol in workflow.md) 43fb3ba
