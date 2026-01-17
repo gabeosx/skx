@@ -11,6 +11,7 @@
 ## Utilities & Libraries
 - **Zod:** For schema validation (e.g., validating the `skills.json` registry and user configuration).
 - **Axios / Undici:** For fetching the `skills.json` registry from GitHub.
+- **tiged:** For downloading skill repositories (or subdirectories) from GitHub without needing a full git clone.
 - **fs-extra:** For simplified file system operations when installing/uninstalling skills.
 
 ## Testing & Quality
