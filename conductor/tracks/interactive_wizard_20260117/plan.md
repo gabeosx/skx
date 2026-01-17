@@ -27,10 +27,10 @@ Assemble the steps: Search -> Agent -> Scope -> Confirmation.
 - [x] Task: Write integration tests for the wizard state machine (mocking `Clack` inputs). ac20e0f
 - [x] Task: Conductor - User Manual Verification 'Interactive Wizard Flow' (Protocol in workflow.md) dcb94ba
 
-## Phase 4: Installation Integration & Cleanup
+## Phase 4: Installation Integration & Cleanup [checkpoint: 9b30661]
 Connect the wizard to the actual installation logic.
 
-- [ ] Task: Update `src/cli.ts` to trigger the wizard when `skx` is run without arguments.
-- [ ] Task: Ensure the wizard correctly invokes `SkillInstaller` with the selected/confirmed parameters.
-- [ ] Task: Final end-to-end smoke tests for the interactive flow.
-- [ ] Task: Conductor - User Manual Verification 'Installation Integration & Cleanup' (Protocol in workflow.md)
+- [x] Task: Update `src/cli.ts` to trigger the wizard when `skx` is run without arguments. ac20e0f
+- [x] Task: Ensure the wizard correctly invokes `SkillInstaller` with the selected/confirmed parameters. ac20e0f
+- [x] Task: Final end-to-end smoke tests for the interactive flow. 9b30661
+- [x] Task: Conductor - User Manual Verification 'Installation Integration & Cleanup' (Protocol in workflow.md) 9b30661
