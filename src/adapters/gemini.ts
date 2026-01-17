@@ -26,4 +26,12 @@ To use the installed skill with Gemini CLI:
 2. You may need to restart the Gemini CLI or the current session for the changes to take effect.
 `.trim();
   }
+
+  async listSkills(scope: Scope, cwd: string): Promise<string[]> {
+    throw new Error('Method not implemented.');
+  }
+
+  async uninstallSkill(scope: Scope, packageName: string, cwd: string): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
 }

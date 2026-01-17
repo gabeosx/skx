@@ -22,6 +22,12 @@ describe('AgentFrameworkAdapter Types', () => {
       getPostInstallInstructions(): string {
         return 'Mock instructions';
       }
+      async listSkills(scope: Scope, cwd: string): Promise<string[]> {
+        return [];
+      }
+      async uninstallSkill(scope: Scope, packageName: string, cwd: string): Promise<void> {
+        // no-op
+      }
     }
 
     const adapter = new MockAdapter();

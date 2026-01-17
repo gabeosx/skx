@@ -9,4 +9,6 @@ export interface AgentFrameworkAdapter {
   detect(cwd: string): Promise<boolean>;
   getInstallationPath(scope: Scope, cwd: string): Promise<string>;
   getPostInstallInstructions(): string;
+  listSkills(scope: Scope, cwd: string): Promise<string[]>;
+  uninstallSkill(scope: Scope, packageName: string, cwd: string): Promise<void>;
 }

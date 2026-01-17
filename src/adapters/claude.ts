@@ -42,4 +42,12 @@ To use the installed skill with Claude Code:
 2. Restart Claude Code if necessary.
 `.trim();
   }
+
+  async listSkills(scope: Scope, cwd: string): Promise<string[]> {
+    throw new Error('Method not implemented.');
+  }
+
+  async uninstallSkill(scope: Scope, packageName: string, cwd: string): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
 }

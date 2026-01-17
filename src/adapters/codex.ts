@@ -29,4 +29,12 @@ To use the installed skill with GitHub Copilot/Codex:
 2. Restart your editor or Copilot agent if necessary.
 `.trim();
   }
+
+  async listSkills(scope: Scope, cwd: string): Promise<string[]> {
+    throw new Error('Method not implemented.');
+  }
+
+  async uninstallSkill(scope: Scope, packageName: string, cwd: string): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
 }
