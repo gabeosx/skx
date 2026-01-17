@@ -8,7 +8,7 @@ Goal: Prepare the project for the new download logic.
 - [x] Task: Install `tiged` dependency. f96da9a
     - [x] Run `npm install tiged`.
     - [x] Run `npm install --save-dev @types/node` (if not already present to ensure `os` and `path` types are available).
-- [ ] Task: Create a dedicated `Downloader` utility.
+- [x] Task: Create a dedicated `Downloader` utility. c0c7f1a
     - [ ] Create `src/utils/downloader.ts`.
     - [ ] Define a `download` method that takes a URL and a target directory.
     - [ ] Implement the `tiged` logic inside this utility.
