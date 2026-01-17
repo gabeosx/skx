@@ -46,7 +46,7 @@ Goal: Implement the physical file copying and directory management.
 ## Phase 5: CLI Integration & E2E
 Goal: Connect the logic to the CLI and perform final verification.
 
-- [ ] Task: Integrate with `skx install` command
+- [x] Task: Integrate with `skx install` command 16e0de7
     - [ ] Update CLI command to use `FrameworkResolver` and `SkillInstaller`
     - [ ] Implement post-install notification display
 - [ ] Task: Integration Smoke Tests
