@@ -14,22 +14,22 @@ Goal: Define the core interfaces and the adapter registration system.
     - [ ] Write tests for registering and getting adapters
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Architecture' (Protocol in workflow.md) 304eca7
 
-## Phase 2: Framework Adapters
+## Phase 2: Framework Adapters [checkpoint: f6d45ef]
 Goal: Implement specific adapters for Gemini, Claude, and Codex.
 
 - [x] Task: Implement `GeminiAdapter` 7e13a08
-    - [ ] Write failing tests for detection and path resolution
-    - [ ] Implement `detect`, `getInstallationPath`, and `getPostInstallInstructions`
-    - [ ] Verify tests pass
+    - [x] Write failing tests for detection and path resolution
+    - [x] Implement `detect`, `getInstallationPath`, and `getPostInstallInstructions`
+    - [x] Verify tests pass
 - [x] Task: Implement `ClaudeAdapter` 35dd3a7
-    - [ ] Write failing tests for detection and path resolution (handling .claude and .github)
-    - [ ] Implement detection and path resolution logic
-    - [ ] Verify tests pass
+    - [x] Write failing tests for detection and path resolution (handling .claude and .github)
+    - [x] Implement detection and path resolution logic
+    - [x] Verify tests pass
 - [x] Task: Implement `CodexAdapter` 0149f19
-    - [ ] Write failing tests for detection and path resolution
-    - [ ] Implement detection and path resolution logic
-    - [ ] Verify tests pass
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Framework Adapters' (Protocol in workflow.md)
+    - [x] Write failing tests for detection and path resolution
+    - [x] Implement detection and path resolution logic
+    - [x] Verify tests pass
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Framework Adapters' (Protocol in workflow.md) f6d45ef
 
 ## Phase 3: Resolution & Discovery Logic
 Goal: Implement the high-level logic for resolving which framework to use.
