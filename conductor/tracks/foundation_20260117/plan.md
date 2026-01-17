@@ -27,7 +27,7 @@ Implementing the core CLI logic and fetching the skills registry.
 - [x] Task: Implement Basic Commander.js CLI. 4c2c8a8
     - [ ] Write Tests: Verify `skx --version` and basic command routing.
     - [ ] Implement Feature: Set up Commander.js in `src/index.ts` with a `search` command.
-- [ ] Task: Implement Search Functionality.
+- [x] Task: Implement Search Functionality. 8c5939d
     - [ ] Write Tests: Test search logic with various queries (exact match, partial match, case-insensitive).
     - [ ] Implement Feature: Add `searchSkills` utility and integrate it into the `search` command.
 - [ ] Task: Implement Basic Interactive Mode (Clack).
