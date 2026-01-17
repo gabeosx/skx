@@ -2,7 +2,7 @@
 
 This plan outlines the steps to implement the core logic for discovering AI agent frameworks and installing Agent Skills.
 
-## Phase 1: Foundation & Architecture
+## Phase 1: Foundation & Architecture [checkpoint: 304eca7]
 Goal: Define the core interfaces and the adapter registration system.
 
 - [x] Task: Define `AgentFrameworkAdapter` interface and types 3f4431e
@@ -12,7 +12,7 @@ Goal: Define the core interfaces and the adapter registration system.
 - [x] Task: Implement Adapter Registry 1f8a388
     - [ ] Create `src/utils/adapters.ts` to manage registration and retrieval of adapters
     - [ ] Write tests for registering and getting adapters
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Architecture' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Architecture' (Protocol in workflow.md) 304eca7
 
 ## Phase 2: Framework Adapters
 Goal: Implement specific adapters for Gemini, Claude, and Codex.
