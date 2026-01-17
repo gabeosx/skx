@@ -10,7 +10,7 @@ Setting up the basic project structure, dependencies, and build configuration.
 - [x] Task: Configure TypeScript, ESLint, and Prettier. 115ecbb
     - [ ] Initialize `tsconfig.json`.
     - [ ] Set up ESLint and Prettier configs based on project style guides.
-- [ ] Task: Create basic directory structure and entry point.
+- [x] Task: Create basic directory structure and entry point. 1206601
     - [ ] Create `src/`, `src/commands/`, `src/utils/`, `src/types/`.
     - [ ] Create `src/index.ts` as the main entry point.
 - [ ] Task: Set up testing framework (Vitest).
