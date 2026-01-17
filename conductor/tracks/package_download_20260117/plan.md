@@ -2,20 +2,13 @@
 
 This plan replaces the mocked installation logic with a real download process using `tiged` to fetch skills from GitHub repositories, including support for subdirectories.
 
-## Phase 1: Environment & Dependencies
+## Phase 1: Environment & Dependencies [checkpoint: 2ba7f57]
 Goal: Prepare the project for the new download logic.
 
 - [x] Task: Install `tiged` dependency. f96da9a
-    - [x] Run `npm install tiged`.
-    - [x] Run `npm install --save-dev @types/node` (if not already present to ensure `os` and `path` types are available).
 - [x] Task: Create a dedicated `Downloader` utility. c0c7f1a
-    - [ ] Create `src/utils/downloader.ts`.
-    - [ ] Define a `download` method that takes a URL and a target directory.
-    - [ ] Implement the `tiged` logic inside this utility.
 - [x] Task: Write unit tests for `Downloader`. 85652cb
-    - [ ] Mock `tiged` to verify it's called with the correct parameters.
-    - [ ] Test handling of various GitHub URL formats (main repo vs. subdirectory).
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Environment & Dependencies' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Environment & Dependencies' (Protocol in workflow.md) 2ba7f57
 
 ## Phase 2: Integration & Orchestration
 Goal: Connect the downloader to the installation CLI flow.
