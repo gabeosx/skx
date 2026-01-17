@@ -13,9 +13,9 @@ Focus on robust detection of AI agents and installation scopes.
 ## Phase 2: Live Search Component
 Implement the interactive skill discovery interface.
 
-- [ ] Task: Create a `SkillSearch` component/function using `Clack` that allows real-time filtering of the registry.
-- [ ] Task: Update `src/utils/search.ts` if needed to support efficient filtering for the TUI.
-- [ ] Task: Write unit tests for the filtering logic in `SkillSearch`.
+- [x] Task: Create a `SkillSearch` component/function using `Clack` that allows real-time filtering of the registry. fcd9de1
+- [x] Task: Update `src/utils/search.ts` if needed to support efficient filtering for the TUI. fcd9de1
+- [x] Task: Write unit tests for the filtering logic in `SkillSearch`. fcd9de1
 - [ ] Task: Conductor - User Manual Verification 'Live Search Component' (Protocol in workflow.md)
 
 ## Phase 3: Interactive Wizard Flow
