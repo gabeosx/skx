@@ -21,6 +21,8 @@ describe('CLI install command', () => {
       start: vi.fn(),
       stop: vi.fn(),
     });
+    (prompts.select as any).mockResolvedValue('workspace');
+    (prompts.isCancel as any).mockReturnValue(false);
   });
 
   it('should define an install command', () => {
@@ -67,6 +69,28 @@ describe('CLI install command', () => {
     await program.parseAsync(['node', 'test', 'install', 'test-skill', '--framework', 'claude', '--scope', 'user']);
 
     expect(FrameworkResolver.prototype.resolve).toHaveBeenCalledWith(expect.any(String), 'claude');
+    expect(mockAdapter.getInstallationPath).toHaveBeenCalledWith(Scope.User, expect.any(String));
+    expect(prompts.select).not.toHaveBeenCalled();
+  });
+
+  it('should prompt for scope if not provided', async () => {
+    const program = createProgram();
+    program.exitOverride();
+
+    const mockAdapter = {
+      name: 'gemini',
+      getInstallationPath: vi.fn().mockResolvedValue('/mock/path'),
+      getPostInstallInstructions: vi.fn().mockReturnValue('Done.'),
+    };
+    (FrameworkResolver.prototype.resolve as any).mockResolvedValue(mockAdapter);
+    (SkillInstaller.prototype.installFromUrl as any).mockResolvedValue(undefined);
+    
+    // Mock user selecting 'user' scope
+    (prompts.select as any).mockResolvedValue('user');
+
+    await program.parseAsync(['node', 'test', 'install', 'test-skill']);
+
+    expect(prompts.select).toHaveBeenCalled();
     expect(mockAdapter.getInstallationPath).toHaveBeenCalledWith(Scope.User, expect.any(String));
   });
 });
