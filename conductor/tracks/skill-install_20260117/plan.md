@@ -9,7 +9,7 @@ Goal: Define the core interfaces and the adapter registration system.
     - [ ] Create `src/types/adapter.ts` with the `AgentFrameworkAdapter` interface
     - [ ] Define `Scope` enum (Workspace, User)
     - [ ] Write tests for a mock adapter implementation
-- [ ] Task: Implement Adapter Registry
+- [x] Task: Implement Adapter Registry 1f8a388
     - [ ] Create `src/utils/adapters.ts` to manage registration and retrieval of adapters
     - [ ] Write tests for registering and getting adapters
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Architecture' (Protocol in workflow.md)
