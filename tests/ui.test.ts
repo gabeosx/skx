@@ -1,41 +1,43 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { startInteractiveMode } from '../src/ui.js';
+import * as wizard from '../src/wizard.js';
 import * as clack from '@clack/prompts';
-import * as registryUtils from '../src/utils/registry.js';
+import { Scope } from '../src/types/adapter.js';
 
 vi.mock('@clack/prompts');
-vi.mock('../src/utils/registry.js');
+vi.mock('../src/wizard.js');
 
 describe('Interactive UI', () => {
-  it('should show welcome message and prompt for search', async () => {
-    // Mock clack intro and text
-    vi.mocked(clack.intro).mockImplementation(() => {});
-    vi.mocked(clack.text).mockResolvedValue('test query');
-    vi.mocked(clack.outro).mockImplementation(() => {});
-    vi.mocked(clack.isCancel).mockReturnValue(false);
+  beforeEach(() => {
+    vi.resetAllMocks();
+  });
+
+  it('should run the wizard and show success message', async () => {
+    const mockSkill = { name: 'test-skill', packageName: 'test-pkg', description: 'desc', githubRepoUrl: 'url' };
+    const mockAdapter = { name: 'gemini', detect: vi.fn(), getInstallationPath: vi.fn().mockResolvedValue('/tmp'), getPostInstallInstructions: vi.fn().mockReturnValue('instructions') };
+    
+    vi.mocked(wizard.runWizard).mockResolvedValue({
+      skill: mockSkill,
+      agent: mockAdapter as any,
+      scope: Scope.Workspace,
+    });
+
     vi.mocked(clack.spinner).mockReturnValue({
       start: vi.fn(),
       stop: vi.fn(),
       message: vi.fn(),
     } as any);
 
-    // Mock registry fetch (since search might be called)
-    vi.mocked(registryUtils.fetchRegistry).mockResolvedValue([]);
-
     await startInteractiveMode();
 
     expect(clack.intro).toHaveBeenCalled();
-    expect(clack.text).toHaveBeenCalledWith(expect.objectContaining({
-      message: expect.stringContaining('Search'),
-    }));
+    expect(wizard.runWizard).toHaveBeenCalled();
     expect(clack.outro).toHaveBeenCalled();
   });
 
-  it('should handle cancellation', async () => {
-    vi.mocked(clack.intro).mockImplementation(() => {});
-    vi.mocked(clack.text).mockResolvedValue('cancel_symbol'); // Mock return value
-    vi.mocked(clack.isCancel).mockReturnValue(true); // isCancel returns true for this value
-    vi.mocked(clack.cancel).mockImplementation(() => {});
+  it('should handle cancellation in wizard', async () => {
+    vi.mocked(wizard.runWizard).mockResolvedValue(undefined);
+    
     const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => { throw new Error('exit'); });
 
     try {
@@ -44,7 +46,7 @@ describe('Interactive UI', () => {
       // expected exit
     }
 
-    expect(clack.cancel).toHaveBeenCalled();
+    expect(clack.cancel).toHaveBeenCalledWith('Installation cancelled.');
     expect(exitSpy).toHaveBeenCalledWith(0);
   });
 });
