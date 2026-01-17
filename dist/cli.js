@@ -5,7 +5,8 @@ import { searchSkills } from './utils/search.js';
 import { FrameworkResolver } from './utils/framework-resolver.js';
 import { SkillInstaller } from './utils/skill-installer.js';
 import { Scope } from './types/adapter.js';
-import { spinner } from '@clack/prompts';
+import { spinner, select, isCancel } from '@clack/prompts';
+import path from 'path';
 export function createProgram() {
     const program = new Command();
     program
@@ -48,12 +49,28 @@ export function createProgram() {
         .description('Install a skill for your AI agent framework')
         .argument('<skill-name>', 'Name of the skill to install')
         .addOption(new Option('-f, --framework <name>', 'Explicitly specify the agent framework (e.g., gemini, claude, codex)'))
-        .addOption(new Option('-s, --scope <type>', 'Installation scope').choices(['workspace', 'user']).default('workspace'))
+        .addOption(new Option('-s, --scope <type>', 'Installation scope').choices(['workspace', 'user']))
         .action(async (skillName, options) => {
         const s = spinner();
         let spinnerStarted = false;
         try {
-            // 1. Fetch Skill Info
+            // 1. Determine Scope (Interactive if not provided)
+            let scopeType = options.scope;
+            if (!scopeType) {
+                const selectedScope = await select({
+                    message: 'Where should this skill be installed?',
+                    options: [
+                        { value: 'workspace', label: 'Workspace (Current Project)', hint: 'Installs to ./.gemini/skills' }, // Note: Hint path depends on framework, simplified here
+                        { value: 'user', label: 'User (Global)', hint: 'Installs to ~/.gemini/skills' },
+                    ],
+                });
+                if (isCancel(selectedScope)) {
+                    console.log(chalk.yellow('Installation cancelled.'));
+                    return;
+                }
+                scopeType = selectedScope;
+            }
+            // 2. Fetch Skill Info
             s.start(`Searching for skill: ${skillName}`);
             spinnerStarted = true;
             const skills = await fetchRegistry();
@@ -65,12 +82,14 @@ export function createProgram() {
             }
             s.stop(`Found skill: ${skill.name}`);
             spinnerStarted = false;
-            // 2. Resolve Framework
+            // 3. Resolve Framework
             const resolver = new FrameworkResolver();
             const adapter = await resolver.resolve(process.cwd(), options.framework);
-            // 3. Determine Paths
-            const scope = options.scope === 'user' ? Scope.User : Scope.Workspace;
-            const targetPath = await adapter.getInstallationPath(scope, process.cwd());
+            // 4. Determine Paths
+            const scope = scopeType === 'user' ? Scope.User : Scope.Workspace;
+            const basePath = await adapter.getInstallationPath(scope, process.cwd());
+            const skillDirName = skill.packageName || skill.name;
+            const targetPath = path.join(basePath, skillDirName);
             s.start(`Downloading and installing to ${targetPath}...`);
             spinnerStarted = true;
             const installer = new SkillInstaller();
