@@ -1,3 +1,5 @@
 #!/usr/bin/env node
+import { createProgram } from './cli.js';
 
-console.log('Hello, skx!');
+const program = createProgram();
+program.parse(process.argv);
