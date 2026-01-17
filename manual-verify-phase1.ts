@@ -1,27 +1,36 @@
-import { FrameworkResolver } from './src/utils/framework-resolver';
-import { ScopeResolver } from './src/utils/scope-resolver';
+import { Downloader } from './src/utils/downloader.ts';
+import * as fs from 'fs';
+import * as path from 'path';
 
-async function verify() {
-  console.log('--- Phase 1 Verification ---');
+async function run() {
+  const target = path.resolve('./temp-download-test');
   
-  const cwd = process.cwd();
-  console.log(`Current Working Directory: ${cwd}`);
+  if (fs.existsSync(target)) {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
 
-  // 1. Framework Detection
-  const frameworkResolver = new FrameworkResolver();
-  const detectedFrameworks = await frameworkResolver.detect(cwd);
-  console.log('Detected Frameworks:', detectedFrameworks.map(f => f.name));
+  const url = 'https://github.com/anthropics/skills/tree/main/skills/pptx';
   
-  // 2. Scope Detection
-  const scopeResolver = new ScopeResolver();
-  const scope = await scopeResolver.resolve(cwd);
-  console.log(`Detected Scope: ${scope}`);
-  
-  if (scope === 'workspace') {
-    console.log('SUCCESS: Correctly detected Workspace scope (due to .git/package.json).');
-  } else {
-    console.log('WARNING: Did not detect Workspace scope as expected (check if .git exists).');
+  console.log(`Downloading from ${url} to ${target}...`);
+  try {
+    await Downloader.download(url, target);
+    console.log('Download complete.');
+    
+    if (fs.existsSync(target)) {
+        const files = fs.readdirSync(target);
+        console.log(`Found ${files.length} files/folders.`);
+        if (files.length > 0) {
+             console.log('Success: Files were downloaded.');
+             console.log('Files:', files);
+        } else {
+             console.error('Failure: Target directory is empty.');
+        }
+    } else {
+        console.error('Failure: Target directory not created.');
+    }
+  } catch (e) {
+    console.error('Error:', e);
   }
 }
 
-verify().catch(console.error);
+run();
