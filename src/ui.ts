@@ -28,10 +28,8 @@ export async function startInteractiveMode() {
     
     // TODO: Implement skill downloading logic. 
     // For now, we assume the skill is already available or simulate it.
-    // Since Phase 4 covers Installation Integration, I will leave a placeholder or basic call.
-    
-    // Note: SkillInstaller.install currently expects a local source directory.
-    // We will need a way to fetch the skill from the repo.
+    const dummySource = '/tmp/skx-dummy-source'; // Placeholder
+    await installer.install(dummySource, targetDir);
     
     s.stop(`Successfully installed ${skill.name}!`);
     
