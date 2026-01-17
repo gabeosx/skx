@@ -17,7 +17,7 @@ Goal: Define the core interfaces and the adapter registration system.
 ## Phase 2: Framework Adapters
 Goal: Implement specific adapters for Gemini, Claude, and Codex.
 
-- [ ] Task: Implement `GeminiAdapter`
+- [x] Task: Implement `GeminiAdapter` 7e13a08
     - [ ] Write failing tests for detection and path resolution
     - [ ] Implement `detect`, `getInstallationPath`, and `getPostInstallInstructions`
     - [ ] Verify tests pass
