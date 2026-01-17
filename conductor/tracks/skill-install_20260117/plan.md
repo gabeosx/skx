@@ -37,15 +37,11 @@ Goal: Implement the high-level logic for resolving which framework to use.
 - [x] Task: Implement `FrameworkResolver` 9815fc4
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Resolution & Discovery Logic' (Protocol in workflow.md) e166b14
 
-## Phase 4: Installation & File Management
+## Phase 4: Installation & File Management [checkpoint: 8601f47]
 Goal: Implement the physical file copying and directory management.
 
 - [x] Task: Implement `SkillInstaller` 825a3a0
-    - [ ] Write failing tests for directory creation and file copying
-    - [ ] Implement logic to ensure target directory structure exists
-    - [ ] Implement robust file copying from source to destination
-    - [ ] Implement success/failure reporting
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Installation & File Management' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Installation & File Management' (Protocol in workflow.md) 8601f47
 
 ## Phase 5: CLI Integration & E2E
 Goal: Connect the logic to the CLI and perform final verification.
