@@ -10,18 +10,14 @@ Goal: Prepare the project for the new download logic.
 - [x] Task: Write unit tests for `Downloader`. 85652cb
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Environment & Dependencies' (Protocol in workflow.md) 2ba7f57
 
-## Phase 2: Integration & Orchestration
+## Phase 2: Integration & Orchestration [checkpoint: 87c611d]
 Goal: Connect the downloader to the installation CLI flow.
 
 - [x] Task: Update `SkillInstaller` to accept a source URL. 9123448
 - [x] Task: Implement Cleanup Logic. 9123448
 - [x] Task: Update `src/cli.ts` (install command). 880ec10
-    - [ ] Replace the "dummy source" logic with the new `Downloader` and `SkillInstaller` flow.
-    - [ ] Ensure the spinner correctly reflects the download and installation states.
 - [x] Task: Write Integration Tests for the `install` command. 35f4094
-    - [ ] Mock network calls or use a real small test repo to verify the end-to-end flow.
-    - [ ] Verify that files end up in the expected agent/scope directory.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Integration & Orchestration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Integration & Orchestration' (Protocol in workflow.md) 87c611d
 
 ## Phase 3: Final Verification
 Goal: Ensure the system works with real-world registry data.
