@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
-import { type AgentFrameworkAdapter, Scope } from '../types/adapter';
+import { type AgentFrameworkAdapter, Scope } from '../types/adapter.js';
 import os from 'os';
 
 export class GeminiAdapter implements AgentFrameworkAdapter {

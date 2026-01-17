@@ -48,7 +48,7 @@ export async function searchAndSelectSkill(): Promise<Skill | undefined> {
           label: skill.name,
           hint: skill.description,
         })),
-        { value: 'search_again', label: '-- Search again --' },
+        { value: 'search_again' as any, label: '-- Search again --' },
       ],
     });
 

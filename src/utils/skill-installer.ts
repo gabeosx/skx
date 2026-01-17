@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import os from 'os';
-import { Downloader } from './downloader';
+import { Downloader } from './downloader.js';
 
 export class SkillInstaller {
   /**

@@ -17,7 +17,6 @@ export async function fetchRegistry() {
         const response = await axios.get(REGISTRY_URL);
         const result = RegistrySchema.safeParse(response.data);
         if (!result.success) {
-            console.error(result.error); // Debug log
             throw new Error('Invalid registry format');
         }
         return result.data;

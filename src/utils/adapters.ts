@@ -1,4 +1,4 @@
-import { AgentFrameworkAdapter } from '../types/adapter';
+import { AgentFrameworkAdapter } from '../types/adapter.js';
 
 export class AdapterRegistry {
   private static adapters: Map<string, AgentFrameworkAdapter> = new Map();

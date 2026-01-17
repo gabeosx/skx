@@ -1,0 +1,8 @@
+{
+  "track_id": "package_download_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "Real Package Acquisition: Implement real download logic using tiged to fetch skills from GitHub."
+}

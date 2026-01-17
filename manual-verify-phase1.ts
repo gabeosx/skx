@@ -22,6 +22,11 @@ async function run() {
         if (files.length > 0) {
              console.log('Success: Files were downloaded.');
              console.log('Files:', files);
+             
+             // Cleanup
+             console.log('Cleaning up...');
+             fs.rmSync(target, { recursive: true, force: true });
+             console.log('Cleanup complete.');
         } else {
              console.error('Failure: Target directory is empty.');
         }

@@ -1,5 +1,5 @@
-import { AgentFrameworkAdapter } from '../types/adapter';
-import { AdapterRegistry } from './adapters';
+import { AgentFrameworkAdapter } from '../types/adapter.js';
+import { AdapterRegistry } from './adapters.js';
 import { select, isCancel, cancel } from '@clack/prompts';
 
 export class FrameworkResolver {

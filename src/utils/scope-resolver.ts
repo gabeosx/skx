@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { Scope } from '../types/adapter';
+import { Scope } from '../types/adapter.js';
 
 export class ScopeResolver {
   async resolve(cwd: string): Promise<Scope> {

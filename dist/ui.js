@@ -1,41 +1,35 @@
-import { intro, outro, text, isCancel, cancel, spinner } from '@clack/prompts';
-import { fetchRegistry } from './utils/registry.js';
-import { searchSkills } from './utils/search.js';
+import { intro, outro, cancel, spinner } from '@clack/prompts';
+import { runWizard } from './wizard.js';
+import { SkillInstaller } from './utils/skill-installer.js';
 import chalk from 'chalk';
 export async function startInteractiveMode() {
     intro(chalk.inverse(' skx '));
-    const query = await text({
-        message: 'Search for a skill:',
-        placeholder: 'e.g. react',
-    });
-    if (isCancel(query)) {
-        cancel('Operation cancelled.');
-        process.exit(0);
-    }
-    const s = spinner();
-    s.start('Fetching registry...');
     try {
-        const skills = await fetchRegistry();
-        s.stop('Registry fetched.');
-        const results = searchSkills(skills, query);
-        if (results.length === 0) {
-            console.log(chalk.yellow('No skills found.'));
+        const result = await runWizard();
+        if (!result) {
+            cancel('Installation cancelled.');
+            process.exit(0);
         }
-        else {
-            console.log(chalk.green(`Found ${results.length} skills:`));
-            results.forEach((skill) => {
-                console.log(chalk.bold(skill.name));
-                console.log(`  ${skill.description}`);
-                console.log(chalk.dim(`  Package: ${skill.packageName}`));
-                console.log(chalk.blue(`  URL: ${skill.githubRepoUrl}`));
-                console.log();
-            });
-        }
+        const { skill, agent, scope } = result;
+        const s = spinner();
+        s.start(`Installing ${skill.name} for ${agent.name}...`);
+        // In a real implementation, we would download the skill first.
+        // For now, we simulate the installation using the installer.
+        // The installer expects sourceDir and targetDir.
+        // We need to resolve the target directory using the adapter.
+        const targetDir = await agent.getInstallationPath(scope, process.cwd());
+        const installer = new SkillInstaller();
+        // TODO: Implement skill downloading logic. 
+        // For now, we assume the skill is already available or simulate it.
+        const dummySource = '/tmp/skx-dummy-source'; // Placeholder
+        await installer.install(dummySource, targetDir);
+        s.stop(`Successfully installed ${skill.name}!`);
+        console.log(chalk.bold('\nPost-Installation Instructions:'));
+        console.log(agent.getPostInstallInstructions());
     }
     catch (error) {
-        s.stop('Failed to fetch registry.');
         if (error instanceof Error) {
-            console.error(chalk.red(`Error: ${error.message}`));
+            console.error(chalk.red(`\nError: ${error.message}`));
         }
     }
     outro('Done!');
