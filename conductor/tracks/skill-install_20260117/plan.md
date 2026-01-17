@@ -31,16 +31,11 @@ Goal: Implement specific adapters for Gemini, Claude, and Codex.
     - [x] Verify tests pass
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Framework Adapters' (Protocol in workflow.md) f6d45ef
 
-## Phase 3: Resolution & Discovery Logic
+## Phase 3: Resolution & Discovery Logic [checkpoint: e166b14]
 Goal: Implement the high-level logic for resolving which framework to use.
 
 - [x] Task: Implement `FrameworkResolver` 9815fc4
-    - [ ] Write failing tests for explicit selection vs. discovery
-    - [ ] Implement logic to check explicit input first
-    - [ ] Implement automatic discovery fallback
-    - [ ] Implement conflict resolution (prompting) when multiple frameworks are detected
-    - [ ] Implement error handling for "no framework found"
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Resolution & Discovery Logic' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Resolution & Discovery Logic' (Protocol in workflow.md) e166b14
 
 ## Phase 4: Installation & File Management
 Goal: Implement the physical file copying and directory management.
