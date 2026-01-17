@@ -27,7 +27,6 @@ export async function fetchRegistry(): Promise<Skill[]> {
     const result = RegistrySchema.safeParse(response.data);
 
     if (!result.success) {
-      console.error(result.error); // Debug log
       throw new Error('Invalid registry format');
     }
 
