@@ -24,7 +24,7 @@ Implementing the core CLI logic and fetching the skills registry.
 - [x] Task: Define Registry Schema and Fetching Logic. f339033
     - [ ] Write Tests: Define expected schema for `skills.json` and mock network responses.
     - [ ] Implement Feature: Use Zod to define the schema and Axios to fetch/parse the registry.
-- [ ] Task: Implement Basic Commander.js CLI.
+- [x] Task: Implement Basic Commander.js CLI. 4c2c8a8
     - [ ] Write Tests: Verify `skx --version` and basic command routing.
     - [ ] Implement Feature: Set up Commander.js in `src/index.ts` with a `search` command.
 - [ ] Task: Implement Search Functionality.
