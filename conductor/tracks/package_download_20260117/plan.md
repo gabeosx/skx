@@ -15,7 +15,7 @@ Goal: Connect the downloader to the installation CLI flow.
 
 - [x] Task: Update `SkillInstaller` to accept a source URL. 9123448
 - [x] Task: Implement Cleanup Logic. 9123448
-- [ ] Task: Update `src/cli.ts` (install command).
+- [~] Task: Update `src/cli.ts` (install command).
     - [ ] Replace the "dummy source" logic with the new `Downloader` and `SkillInstaller` flow.
     - [ ] Ensure the spinner correctly reflects the download and installation states.
 - [ ] Task: Write Integration Tests for the `install` command.
