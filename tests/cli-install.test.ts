@@ -50,7 +50,7 @@ describe('CLI install command', () => {
 
     expect(FrameworkResolver.prototype.resolve).toHaveBeenCalledWith('/cwd', undefined);
     expect(mockAdapter.getInstallationPath).toHaveBeenCalledWith(Scope.Workspace, '/cwd');
-    expect(SkillInstaller.prototype.installFromUrl).toHaveBeenCalledWith('https://github.com/test/skill', '/mock/path');
+    expect(SkillInstaller.prototype.installFromUrl).toHaveBeenCalledWith('https://github.com/test/skill', '/mock/path/test-skill');
   });
 
   it('should accept --framework and --scope flags', async () => {

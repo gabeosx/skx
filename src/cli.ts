@@ -6,6 +6,7 @@ import { FrameworkResolver } from './utils/framework-resolver.js';
 import { SkillInstaller } from './utils/skill-installer.js';
 import { Scope } from './types/adapter.js';
 import { spinner, select, isCancel } from '@clack/prompts';
+import path from 'path';
 
 export function createProgram(): Command {
   const program = new Command();
@@ -95,7 +96,8 @@ export function createProgram(): Command {
         
         // 4. Determine Paths
         const scope = scopeType === 'user' ? Scope.User : Scope.Workspace;
-        const targetPath = await adapter.getInstallationPath(scope, process.cwd());
+        const basePath = await adapter.getInstallationPath(scope, process.cwd());
+        const targetPath = path.join(basePath, skill.name);
         
         s.start(`Downloading and installing to ${targetPath}...`);
         spinnerStarted = true;

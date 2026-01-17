@@ -48,7 +48,7 @@ describe('CLI Integration Smoke Tests', () => {
     ]);
 
     expect(Downloader.download).toHaveBeenCalledWith('https://github.com/test/skill', expect.any(String));
-    expect(fs.copy).toHaveBeenCalledWith(expect.any(String), expect.stringContaining('.gemini/skills'));
+    expect(fs.copy).toHaveBeenCalledWith(expect.any(String), expect.stringContaining(path.join('.gemini/skills', 'test-skill')));
   });
 
   it('should detect framework automatically in a directory', async () => {
@@ -66,6 +66,6 @@ describe('CLI Integration Smoke Tests', () => {
     ]);
 
     expect(Downloader.download).toHaveBeenCalledWith('https://github.com/test/skill', expect.any(String));
-    expect(fs.copy).toHaveBeenCalledWith(expect.any(String), path.join(tmpDir, '.claude', 'skills'));
+    expect(fs.copy).toHaveBeenCalledWith(expect.any(String), path.join(tmpDir, '.claude', 'skills', 'test-skill'));
   });
 });
