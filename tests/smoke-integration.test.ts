@@ -3,12 +3,14 @@ import { createProgram } from '../src/cli';
 import { AdapterRegistry } from '../src/utils/adapters';
 import { GeminiAdapter } from '../src/adapters/gemini';
 import { ClaudeAdapter } from '../src/adapters/claude';
+import { Downloader } from '../src/utils/downloader';
 import fs from 'fs-extra';
 import path from 'path';
 import os from 'os';
 import * as registry from '../src/utils/registry';
 
 vi.mock('../src/utils/registry');
+vi.mock('../src/utils/downloader');
 
 describe('CLI Integration Smoke Tests', () => {
   let tmpDir: string;
@@ -23,6 +25,8 @@ describe('CLI Integration Smoke Tests', () => {
     (registry.fetchRegistry as any).mockResolvedValue([
       { name: 'test-skill', packageName: '@test/skill', githubRepoUrl: 'https://github.com/test/skill' }
     ]);
+
+    vi.mocked(Downloader.download).mockResolvedValue(undefined);
   });
 
   afterEach(async () => {
@@ -43,6 +47,7 @@ describe('CLI Integration Smoke Tests', () => {
       '--scope', 'workspace'
     ]);
 
+    expect(Downloader.download).toHaveBeenCalledWith('https://github.com/test/skill', expect.any(String));
     expect(fs.copy).toHaveBeenCalledWith(expect.any(String), expect.stringContaining('.gemini/skills'));
   });
 
@@ -59,6 +64,7 @@ describe('CLI Integration Smoke Tests', () => {
       'node', 'test', 'install', 'test-skill'
     ]);
 
+    expect(Downloader.download).toHaveBeenCalledWith('https://github.com/test/skill', expect.any(String));
     expect(fs.copy).toHaveBeenCalledWith(expect.any(String), path.join(tmpDir, '.claude', 'skills'));
   });
 });
