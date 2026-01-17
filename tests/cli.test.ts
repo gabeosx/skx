@@ -1,12 +1,26 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { createProgram } from '../src/cli.js';
-import { Command } from 'commander';
+import * as registryUtils from '../src/utils/registry.js';
+
+vi.mock('../src/utils/registry.js');
 
 describe('CLI', () => {
+  let consoleLogSpy: any;
+  let consoleErrorSpy: any;
+
+  beforeEach(() => {
+    consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.resetAllMocks();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('should create a program with the correct name and version', () => {
     const program = createProgram();
     expect(program.name()).toBe('skx');
-    // Version is usually set from package.json, but here we check if it's set
     expect(program.version()).toBeDefined();
   });
 
@@ -15,5 +29,53 @@ describe('CLI', () => {
     const searchCmd = program.commands.find((cmd) => cmd.name() === 'search');
     expect(searchCmd).toBeDefined();
     expect(searchCmd?.description()).toBeDefined();
+  });
+
+  it('should search and display skills', async () => {
+    const mockSkills = [
+      {
+        name: 'test-skill',
+        description: 'A test skill',
+        command: 'test',
+        tags: ['test'],
+        author: 'tester',
+        version: '1.0.0',
+      },
+    ];
+
+    vi.mocked(registryUtils.fetchRegistry).mockResolvedValue(mockSkills);
+
+    const program = createProgram();
+    // Use parseAsync to await the action
+    await program.parseAsync(['node', 'skx', 'search', 'test']);
+
+    expect(registryUtils.fetchRegistry).toHaveBeenCalled();
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Found 1 skills'));
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('test-skill'));
+  });
+
+  it('should handle no skills found', async () => {
+    vi.mocked(registryUtils.fetchRegistry).mockResolvedValue([]);
+    const program = createProgram();
+    await program.parseAsync(['node', 'skx', 'search', 'missing']);
+
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('No skills found'));
+  });
+
+  it('should handle errors during fetch', async () => {
+    vi.mocked(registryUtils.fetchRegistry).mockRejectedValue(new Error('Fetch failed'));
+    const program = createProgram();
+
+    // Save original exitCode
+    const originalExitCode = process.exitCode;
+    process.exitCode = undefined;
+
+    await program.parseAsync(['node', 'skx', 'search']);
+
+    expect(consoleErrorSpy).toHaveBeenCalledWith(expect.stringContaining('Error: Fetch failed'));
+    expect(process.exitCode).toBe(1);
+
+    // Restore exitCode
+    process.exitCode = originalExitCode;
   });
 });
