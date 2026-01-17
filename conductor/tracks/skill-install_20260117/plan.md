@@ -34,7 +34,7 @@ Goal: Implement specific adapters for Gemini, Claude, and Codex.
 ## Phase 3: Resolution & Discovery Logic
 Goal: Implement the high-level logic for resolving which framework to use.
 
-- [ ] Task: Implement `FrameworkResolver`
+- [x] Task: Implement `FrameworkResolver` 9815fc4
     - [ ] Write failing tests for explicit selection vs. discovery
     - [ ] Implement logic to check explicit input first
     - [ ] Implement automatic discovery fallback
