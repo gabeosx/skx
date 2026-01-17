@@ -3,6 +3,18 @@ import { AdapterRegistry } from './adapters';
 import { select, isCancel, cancel } from '@clack/prompts';
 
 export class FrameworkResolver {
+  async detect(cwd: string): Promise<AgentFrameworkAdapter[]> {
+    const adapters = AdapterRegistry.getAll();
+    const detectedAdapters: AgentFrameworkAdapter[] = [];
+
+    for (const adapter of adapters) {
+      if (await adapter.detect(cwd)) {
+        detectedAdapters.push(adapter);
+      }
+    }
+    return detectedAdapters;
+  }
+
   async resolve(cwd: string, explicitName?: string): Promise<AgentFrameworkAdapter> {
     // 1. Explicit Selection
     if (explicitName) {
@@ -14,14 +26,7 @@ export class FrameworkResolver {
     }
 
     // 2. Automatic Discovery
-    const adapters = AdapterRegistry.getAll();
-    const detectedAdapters: AgentFrameworkAdapter[] = [];
-
-    for (const adapter of adapters) {
-      if (await adapter.detect(cwd)) {
-        detectedAdapters.push(adapter);
-      }
-    }
+    const detectedAdapters = await this.detect(cwd);
 
     // 3. Handle Results
     if (detectedAdapters.length === 0) {
