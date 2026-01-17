@@ -13,11 +13,8 @@ Goal: Prepare the project for the new download logic.
 ## Phase 2: Integration & Orchestration
 Goal: Connect the downloader to the installation CLI flow.
 
-- [ ] Task: Update `SkillInstaller` to accept a source URL.
-    - [ ] Modify `SkillInstaller.install` or create a new method to handle the download-to-temp-then-install flow.
-    - [ ] Implement logic to create a unique temporary directory using `os.tmpdir()`.
-- [ ] Task: Implement Cleanup Logic.
-    - [ ] Ensure the temporary directory is deleted using `fs.remove` in a `finally` block.
+- [x] Task: Update `SkillInstaller` to accept a source URL. 9123448
+- [x] Task: Implement Cleanup Logic. 9123448
 - [ ] Task: Update `src/cli.ts` (install command).
     - [ ] Replace the "dummy source" logic with the new `Downloader` and `SkillInstaller` flow.
     - [ ] Ensure the spinner correctly reflects the download and installation states.
