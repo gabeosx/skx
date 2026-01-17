@@ -35,11 +35,10 @@ describe('CLI', () => {
     const mockSkills = [
       {
         name: 'test-skill',
+        packageName: 'test-pkg',
         description: 'A test skill',
-        command: 'test',
+        githubRepoUrl: 'url',
         tags: ['test'],
-        author: 'tester',
-        version: '1.0.0',
       },
     ];
 
@@ -52,6 +51,7 @@ describe('CLI', () => {
     expect(registryUtils.fetchRegistry).toHaveBeenCalled();
     expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Found 1 skills'));
     expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('test-skill'));
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Package: test-pkg'));
   });
 
   it('should handle no skills found', async () => {

@@ -6,27 +6,24 @@ describe('Search Utils', () => {
   const mockSkills: Skill[] = [
     {
       name: 'react-agent',
+      packageName: 'react-agent',
       description: 'An agent for React development',
-      command: 'react',
+      githubRepoUrl: 'url',
       tags: ['react', 'frontend'],
-      author: 'user1',
-      version: '1.0.0',
     },
     {
       name: 'node-helper',
+      packageName: 'node-helper',
       description: 'Helper for Node.js',
-      command: 'node',
+      githubRepoUrl: 'url',
       tags: ['backend'],
-      author: 'user2',
-      version: '1.0.0',
     },
     {
       name: 'python-script',
+      packageName: 'python-script',
       description: 'Run python scripts',
-      command: 'python',
+      githubRepoUrl: 'url',
       tags: ['scripting'],
-      author: 'user1',
-      version: '1.0.0',
     },
   ];
 

@@ -32,7 +32,8 @@ export async function startInteractiveMode() {
       results.forEach((skill) => {
         console.log(chalk.bold(skill.name));
         console.log(`  ${skill.description}`);
-        console.log(chalk.dim(`  Command: ${skill.command}`));
+        console.log(chalk.dim(`  Package: ${skill.packageName}`));
+        console.log(chalk.blue(`  URL: ${skill.githubRepoUrl}`));
         console.log();
       });
     }

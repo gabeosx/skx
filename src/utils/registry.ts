@@ -3,18 +3,18 @@ import { z } from 'zod';
 
 export const SkillSchema = z.object({
   name: z.string(),
+  packageName: z.string(),
   description: z.string(),
-  command: z.string(),
+  githubRepoUrl: z.string(),
   tags: z.array(z.string()),
-  author: z.string(),
-  version: z.string(),
+  command: z.string().optional(),
+  author: z.string().optional(),
+  version: z.string().optional(),
 });
 
 export type Skill = z.infer<typeof SkillSchema>;
 
-export const RegistrySchema = z.object({
-  skills: z.array(SkillSchema),
-});
+export const RegistrySchema = z.array(SkillSchema);
 
 export type Registry = z.infer<typeof RegistrySchema>;
 
@@ -27,10 +27,11 @@ export async function fetchRegistry(): Promise<Skill[]> {
     const result = RegistrySchema.safeParse(response.data);
 
     if (!result.success) {
+      console.error(result.error); // Debug log
       throw new Error('Invalid registry format');
     }
 
-    return result.data.skills;
+    return result.data;
   } catch (error) {
     if (error instanceof Error && error.message === 'Invalid registry format') {
       throw error;

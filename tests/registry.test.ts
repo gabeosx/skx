@@ -13,31 +13,28 @@ describe('Registry Utils', () => {
   const mockSkills: Skill[] = [
     {
       name: 'test-skill',
+      packageName: 'test-pkg',
       description: 'A test skill',
-      command: 'test',
+      githubRepoUrl: 'https://github.com/test',
       tags: ['test'],
-      author: 'tester',
-      version: '1.0.0',
     },
   ];
 
-  const mockRegistryResponse = {
-    skills: mockSkills,
-  };
+  const mockRegistryResponse = mockSkills; // Top-level array
 
   it('should validate a correct registry schema', () => {
     const result = RegistrySchema.safeParse(mockRegistryResponse);
     expect(result.success).toBe(true);
     if (result.success) {
-      expect(result.data.skills).toHaveLength(1);
-      expect(result.data.skills[0].name).toBe('test-skill');
+      expect(result.data).toHaveLength(1);
+      expect(result.data[0].name).toBe('test-skill');
     }
   });
 
   it('should fail validation for incorrect schema', () => {
-    const invalidData = {
-      skills: [{ name: 'test-skill' }], // missing required fields
-    };
+    const invalidData = [
+      { name: 'test-skill' }, // missing required fields
+    ];
     const result = RegistrySchema.safeParse(invalidData);
     expect(result.success).toBe(false);
   });
