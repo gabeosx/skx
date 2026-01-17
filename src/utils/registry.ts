@@ -1,0 +1,40 @@
+import axios from 'axios';
+import { z } from 'zod';
+
+export const SkillSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  command: z.string(),
+  tags: z.array(z.string()),
+  author: z.string(),
+  version: z.string(),
+});
+
+export type Skill = z.infer<typeof SkillSchema>;
+
+export const RegistrySchema = z.object({
+  skills: z.array(SkillSchema),
+});
+
+export type Registry = z.infer<typeof RegistrySchema>;
+
+const REGISTRY_URL =
+  'https://raw.githubusercontent.com/gabeosx/agentskillsdir/main/public/skills.json';
+
+export async function fetchRegistry(): Promise<Skill[]> {
+  try {
+    const response = await axios.get(REGISTRY_URL);
+    const result = RegistrySchema.safeParse(response.data);
+
+    if (!result.success) {
+      throw new Error('Invalid registry format');
+    }
+
+    return result.data.skills;
+  } catch (error) {
+    if (error instanceof Error && error.message === 'Invalid registry format') {
+      throw error;
+    }
+    throw new Error('Failed to fetch registry');
+  }
+}
