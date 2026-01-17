@@ -97,7 +97,8 @@ export function createProgram(): Command {
         // 4. Determine Paths
         const scope = scopeType === 'user' ? Scope.User : Scope.Workspace;
         const basePath = await adapter.getInstallationPath(scope, process.cwd());
-        const targetPath = path.join(basePath, skill.name);
+        const skillDirName = skill.packageName || skill.name;
+        const targetPath = path.join(basePath, skillDirName);
         
         s.start(`Downloading and installing to ${targetPath}...`);
         spinnerStarted = true;
