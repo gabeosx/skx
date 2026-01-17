@@ -6,8 +6,8 @@ This plan implements the interactive TUI mode for `skx`, providing a step-by-ste
 Focus on robust detection of AI agents and installation scopes.
 
 - [x] Task: Update `FrameworkResolver` to return detected agent(s) without forcing interactive selection immediately. c726102
-- [ ] Task: Implement `ScopeResolver` to detect if the current environment favors "Workspace" (e.g., in a git repo or project root) vs "User" scope.
-- [ ] Task: Write tests for `ScopeResolver` and updated `FrameworkResolver`.
+- [x] Task: Implement `ScopeResolver` to detect if the current environment favors "Workspace" (e.g., in a git repo or project root) vs "User" scope. bef6b9c
+- [x] Task: Write tests for `ScopeResolver` and updated `FrameworkResolver`. bef6b9c
 - [ ] Task: Conductor - User Manual Verification 'Enhanced Environment Detection' (Protocol in workflow.md)
 
 ## Phase 2: Live Search Component
