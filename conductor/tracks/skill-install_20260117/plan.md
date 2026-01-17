@@ -49,7 +49,7 @@ Goal: Connect the logic to the CLI and perform final verification.
 - [x] Task: Integrate with `skx install` command 16e0de7
     - [ ] Update CLI command to use `FrameworkResolver` and `SkillInstaller`
     - [ ] Implement post-install notification display
-- [ ] Task: Integration Smoke Tests
+- [x] Task: Integration Smoke Tests 0ddfb26
     - [ ] Create test scenarios for each framework (Gemini, Claude, Codex)
     - [ ] Verify directory creation and file copying in a temporary workspace
 - [ ] Task: Conductor - User Manual Verification 'Phase 5: CLI Integration & E2E' (Protocol in workflow.md)
