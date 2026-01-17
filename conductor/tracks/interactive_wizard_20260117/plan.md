@@ -21,10 +21,10 @@ Implement the interactive skill discovery interface.
 ## Phase 3: Interactive Wizard Flow
 Assemble the steps: Search -> Agent -> Scope -> Confirmation.
 
-- [ ] Task: Implement the main `wizard` function in `src/ui.ts` (or a new file `src/wizard.ts`).
-- [ ] Task: Implement "Smart Defaults" logic where the user can accept detected values or override them.
-- [ ] Task: Implement the "Confirmation Summary" screen before proceeding to installation.
-- [ ] Task: Write integration tests for the wizard state machine (mocking `Clack` inputs).
+- [x] Task: Implement the main `wizard` function in `src/ui.ts` (or a new file `src/wizard.ts`). ac20e0f
+- [x] Task: Implement "Smart Defaults" logic where the user can accept detected values or override them. ac20e0f
+- [x] Task: Implement the "Confirmation Summary" screen before proceeding to installation. ac20e0f
+- [x] Task: Write integration tests for the wizard state machine (mocking `Clack` inputs). ac20e0f
 - [ ] Task: Conductor - User Manual Verification 'Interactive Wizard Flow' (Protocol in workflow.md)
 
 ## Phase 4: Installation Integration & Cleanup
