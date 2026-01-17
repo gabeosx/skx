@@ -1,5 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
+import os from 'os';
+import { Downloader } from './downloader';
 
 export class SkillInstaller {
   /**
@@ -22,6 +24,24 @@ export class SkillInstaller {
         throw new Error(`Failed to install skill: ${error.message}`);
       }
       throw new Error('An unknown error occurred during skill installation.');
+    }
+  }
+
+  /**
+   * Downloads a skill from a URL and installs it.
+   * 
+   * @param url The GitHub URL or other source URL.
+   * @param targetDir The destination directory.
+   */
+  async installFromUrl(url: string, targetDir: string): Promise<void> {
+    const tempDir = path.join(os.tmpdir(), `skx-skill-${Date.now()}`);
+    
+    try {
+      await Downloader.download(url, tempDir);
+      await this.install(tempDir, targetDir);
+    } finally {
+      // Cleanup temp directory
+      await fs.remove(tempDir);
     }
   }
 }
