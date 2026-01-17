@@ -12,7 +12,7 @@ Goal: Prepare the project for the new download logic.
     - [ ] Create `src/utils/downloader.ts`.
     - [ ] Define a `download` method that takes a URL and a target directory.
     - [ ] Implement the `tiged` logic inside this utility.
-- [ ] Task: Write unit tests for `Downloader`.
+- [x] Task: Write unit tests for `Downloader`. 85652cb
     - [ ] Mock `tiged` to verify it's called with the correct parameters.
     - [ ] Test handling of various GitHub URL formats (main repo vs. subdirectory).
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Environment & Dependencies' (Protocol in workflow.md)
