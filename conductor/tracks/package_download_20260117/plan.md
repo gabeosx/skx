@@ -1,0 +1,42 @@
+# Implementation Plan: Real Package Acquisition
+
+This plan replaces the mocked installation logic with a real download process using `tiged` to fetch skills from GitHub repositories, including support for subdirectories.
+
+## Phase 1: Environment & Dependencies
+Goal: Prepare the project for the new download logic.
+
+- [x] Task: Install `tiged` dependency. f96da9a
+    - [x] Run `npm install tiged`.
+    - [x] Run `npm install --save-dev @types/node` (if not already present to ensure `os` and `path` types are available).
+- [ ] Task: Create a dedicated `Downloader` utility.
+    - [ ] Create `src/utils/downloader.ts`.
+    - [ ] Define a `download` method that takes a URL and a target directory.
+    - [ ] Implement the `tiged` logic inside this utility.
+- [ ] Task: Write unit tests for `Downloader`.
+    - [ ] Mock `tiged` to verify it's called with the correct parameters.
+    - [ ] Test handling of various GitHub URL formats (main repo vs. subdirectory).
+- [ ] Task: Conductor - User Manual Verification 'Phase 1: Environment & Dependencies' (Protocol in workflow.md)
+
+## Phase 2: Integration & Orchestration
+Goal: Connect the downloader to the installation CLI flow.
+
+- [ ] Task: Update `SkillInstaller` to accept a source URL.
+    - [ ] Modify `SkillInstaller.install` or create a new method to handle the download-to-temp-then-install flow.
+    - [ ] Implement logic to create a unique temporary directory using `os.tmpdir()`.
+- [ ] Task: Implement Cleanup Logic.
+    - [ ] Ensure the temporary directory is deleted using `fs.remove` in a `finally` block.
+- [ ] Task: Update `src/cli.ts` (install command).
+    - [ ] Replace the "dummy source" logic with the new `Downloader` and `SkillInstaller` flow.
+    - [ ] Ensure the spinner correctly reflects the download and installation states.
+- [ ] Task: Write Integration Tests for the `install` command.
+    - [ ] Mock network calls or use a real small test repo to verify the end-to-end flow.
+    - [ ] Verify that files end up in the expected agent/scope directory.
+- [ ] Task: Conductor - User Manual Verification 'Phase 2: Integration & Orchestration' (Protocol in workflow.md)
+
+## Phase 3: Final Verification
+Goal: Ensure the system works with real-world registry data.
+
+- [ ] Task: End-to-End Smoke Test with the `pptx` skill.
+    - [ ] Run `skx install pptx` in a test environment.
+    - [ ] Verify the files are correctly downloaded from the monorepo subdirectory.
+- [ ] Task: Conductor - User Manual Verification 'Phase 3: Final Verification' (Protocol in workflow.md)
