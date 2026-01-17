@@ -13,7 +13,7 @@ Setting up the basic project structure, dependencies, and build configuration.
 - [x] Task: Create basic directory structure and entry point. 1206601
     - [ ] Create `src/`, `src/commands/`, `src/utils/`, `src/types/`.
     - [ ] Create `src/index.ts` as the main entry point.
-- [ ] Task: Set up testing framework (Vitest).
+- [x] Task: Set up testing framework (Vitest). 8385c93
     - [ ] Configure `vitest.config.ts`.
     - [ ] Create a "smoke test" to ensure the test environment is working.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding' (Protocol in workflow.md)
