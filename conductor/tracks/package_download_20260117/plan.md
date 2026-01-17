@@ -19,8 +19,8 @@ Goal: Connect the downloader to the installation CLI flow.
 - [x] Task: Write Integration Tests for the `install` command. 35f4094
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Integration & Orchestration' (Protocol in workflow.md) 87c611d
 
-## Phase 3: Final Verification
+## Phase 3: Final Verification [checkpoint: e951f4a]
 Goal: Ensure the system works with real-world registry data.
 
 - [x] Task: End-to-End Smoke Test with the `pptx` skill. 5892b09
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Final Verification' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Final Verification' (Protocol in workflow.md) e951f4a
