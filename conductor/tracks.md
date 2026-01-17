@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Interactive Installation Wizard**
+- [x] **Track: Interactive Installation Wizard**
 *Link: [./tracks/interactive_wizard_20260117/](./tracks/interactive_wizard_20260117/)*
