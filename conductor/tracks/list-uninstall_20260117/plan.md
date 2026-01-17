@@ -4,13 +4,13 @@
 - [x] Task: Update `Adapter` interface to support listing and uninstalling skills. e9d99e2
     - [x] Add `listSkills(scope: Scope): Promise<string[]>` to `Adapter` interface.
     - [x] Add `uninstallSkill(scope: Scope, packageName: string): Promise<void>` to `Adapter` interface.
-- [ ] Task: Implement `listSkills` and `uninstallSkill` in `GeminiAdapter`, `ClaudeAdapter`, etc.
-    - [ ] Implement `GeminiAdapter.listSkills`.
-    - [ ] Implement `GeminiAdapter.uninstallSkill`.
-    - [ ] Implement `ClaudeAdapter.listSkills`.
-    - [ ] Implement `ClaudeAdapter.uninstallSkill`.
-    - [ ] Implement `CodexAdapter.listSkills`.
-    - [ ] Implement `CodexAdapter.uninstallSkill`.
+- [x] Task: Implement `listSkills` and `uninstallSkill` in `GeminiAdapter`, `ClaudeAdapter`, etc. 154edbf
+    - [x] Implement `GeminiAdapter.listSkills`.
+    - [x] Implement `GeminiAdapter.uninstallSkill`.
+    - [x] Implement `ClaudeAdapter.listSkills`.
+    - [x] Implement `ClaudeAdapter.uninstallSkill`.
+    - [x] Implement `CodexAdapter.listSkills`.
+    - [x] Implement `CodexAdapter.uninstallSkill`.
 - [ ] Task: Create `SkillManager` class (or update existing utility) to orchestrate detection.
     - [ ] Implement `detectInstalledSkills(filter?: { agent?: string, scope?: string })` to scan all locations.
 
