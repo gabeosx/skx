@@ -18,7 +18,7 @@ Goal: Connect the downloader to the installation CLI flow.
 - [x] Task: Update `src/cli.ts` (install command). 880ec10
     - [ ] Replace the "dummy source" logic with the new `Downloader` and `SkillInstaller` flow.
     - [ ] Ensure the spinner correctly reflects the download and installation states.
-- [ ] Task: Write Integration Tests for the `install` command.
+- [x] Task: Write Integration Tests for the `install` command. 35f4094
     - [ ] Mock network calls or use a real small test repo to verify the end-to-end flow.
     - [ ] Verify that files end up in the expected agent/scope directory.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Integration & Orchestration' (Protocol in workflow.md)
