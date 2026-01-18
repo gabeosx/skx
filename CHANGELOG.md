@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/gabeosx/skx/compare/v1.0.2...v1.1.0) (2026-01-18)
+
+
+### Bug Fixes
+
+* **release:** Remove broken heredoc from Homebrew update script ([0899256](https://github.com/gabeosx/skx/commit/089925673e8197d000cfc9adb2f7826c4c296773))
+
+
+### Features
+
+* **release:** Replace Homebrew action with manual update script for better reliability ([8cf7e9c](https://github.com/gabeosx/skx/commit/8cf7e9c972d7700e65c0cca4f19bab57504a974d))
+
 ## [1.0.2](https://github.com/gabeosx/skx/compare/v1.0.1...v1.0.2) (2026-01-18)
 
 
