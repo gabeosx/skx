@@ -1,4 +1,4 @@
-# Implementation Plan - GitHub & CI/CD Setup
+# Implementation Plan - GitHub & CI/CD Setup [checkpoint: feae326]
 
 ## Phase 1: Repository & Environment Setup
 - [x] Task: Create public GitHub repository `skx` using `gh` CLI. [4d6794c]
@@ -7,10 +7,10 @@
     - [ ] Initialize with a basic README.
 - [x] Task: Configure repository secrets. [30a0e65]
     - [ ] Create placeholder instructions for user to add `NPM_TOKEN` and `GH_TOKEN` (or `HOMEBREW_TAP_TOKEN`) to repository secrets.
-- [~] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) [feae326]
 
 ## Phase 2: CI Pipeline Configuration
-- [ ] Task: Refine existing CI workflow (`.github/workflows/ci.yml`).
+- [~] Task: Refine existing CI workflow (`.github/workflows/ci.yml`).
     - [ ] Ensure it runs on `push` to `main` and `pull_request`.
     - [ ] Verify lint, type-check, and test steps match `package.json` scripts.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
