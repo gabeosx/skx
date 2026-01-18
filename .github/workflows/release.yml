@@ -34,6 +34,7 @@ jobs:
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
       - name: Get Version
@@ -52,6 +53,20 @@ jobs:
           # 2. Calculate SHA256 of the NPM package
           TARBALL_URL="https://registry.npmjs.org/@gabeosx/skx/-/skx-$VERSION.tgz"
           echo "Fetching $TARBALL_URL..."
+          
+          # Retry loop to wait for NPM to propagate
+          MAX_RETRIES=10
+          RETRY_COUNT=0
+          until curl --output /dev/null --silent --head --fail "$TARBALL_URL"; do
+            if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
+              echo "Error: Timeout waiting for $TARBALL_URL to become available."
+              exit 1
+            fi
+            echo "Waiting for package to be available on NPM... (Attempt $((RETRY_COUNT+1))/$MAX_RETRIES)"
+            sleep 15
+            RETRY_COUNT=$((RETRY_COUNT+1))
+          done
+
           curl -L -o package.tgz "$TARBALL_URL"
           SHA256=$(sha256sum package.tgz | awk '{print $1}')
           echo "SHA256: $SHA256"
