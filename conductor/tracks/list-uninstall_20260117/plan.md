@@ -14,7 +14,7 @@
 - [x] Task: Create `SkillManager` class (or update existing utility) to orchestrate detection. 77d37d8
     - [x] Implement `detectInstalledSkills(filter?: { agent?: string, scope?: string })` to scan all locations.
 
-## Phase 2: CLI Commands Implementation
+## Phase 2: CLI Commands Implementation [checkpoint: aeb7cdb]
 - [x] Task: Implement `skx list` command using Commander.js. 0944817
     - [x] Define command with flags: `-a, --agent <agent>` and `-s, --scope <scope>`.
     - [x] Implement logic to call `SkillManager` based on flags.
