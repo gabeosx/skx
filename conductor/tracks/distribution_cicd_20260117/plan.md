@@ -14,4 +14,4 @@
 - [x] Task: Configure `package.json` for publishing (files, bin, repository, etc.). [f71dbc9]
 - [x] Task: Create GitHub Actions workflow for NPM publishing on release. [166ad49]
 - [x] Task: Create/Configure Homebrew formula update logic in the release workflow. [dc9e207]
-- [ ] Task: Conductor - User Manual Verification 'Automated Distribution' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Automated Distribution' (Protocol in workflow.md) [d62d2ab]
