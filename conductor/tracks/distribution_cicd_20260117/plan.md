@@ -25,16 +25,16 @@
     - [ ] Add steps: Checkout, Setup Node, Install, Verify CI, and Run Semantic Release.
 - [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md) [32f4f6d]
 
-## Phase 4: Homebrew Tap Automation
+## Phase 4: Homebrew Tap Automation [checkpoint: 4f5e462]
 - [x] Task: Create Homebrew Formula template. [86792eb]
     - [ ] Add a `Formula/skx.rb` template or configure a generation script.
 - [x] Task: Configure Semantic Release for Homebrew. [86792eb]
     - [ ] Add a plugin or an additional step in `release.yml` to update the `homebrew-skx` repo.
     - [ ] Alternatively, use a dedicated action (like `mislav/bump-homebrew-formula-action`) triggered after a successful release.
-- [~] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md) [4f5e462]
 
 ## Phase 5: Final Integration & Push
-- [ ] Task: Commit all local changes (workflow files, config).
+- [~] Task: Commit all local changes (workflow files, config).
 - [ ] Task: Push local `main` branch to the new GitHub `skx` repository.
 - [ ] Task: Verify the first run of the pipeline on GitHub.
 - [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
