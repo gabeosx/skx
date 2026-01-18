@@ -1,7 +1,11 @@
 # skx
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/gabeosx/skx/ci.yml?branch=main)
+![NPM Version](https://img.shields.io/npm/v/@gabeosx/skx)
+![NPM Downloads](https://img.shields.io/npm/dm/@gabeosx/skx)
+![Node Version](https://img.shields.io/node/v/@gabeosx/skx)
 ![License](https://img.shields.io/npm/l/@gabeosx/skx)
+![GitHub stars](https://img.shields.io/github/stars/gabeosx/skx?style=social)
 
 **Agent Skills Manager** - The CLI tool for managing Agent Skills from the [Agent Skills Directory](https://skillindex.dev).
 
@@ -26,7 +30,7 @@ npm install -g @gabeosx/skx
 
 ### Homebrew (macOS)
 ```bash
-brew tap gabeosx/tap
+brew tap gabeosx/skx
 brew install skx
 ```
 
@@ -57,16 +61,18 @@ skx search <query>
 **Install a skill:**
 Install a skill from the registry. If flags are omitted, the CLI will guide you through the process.
 ```bash
-skx install <package-name>
+skx install <skill-name>
 ```
+- `<skill-name>`: The name or package name of the skill (e.g., `web-search`).
 - `-a, --agent <agent>`: Explicitly specify the AI agent.
 - `-s, --scope <scope>`: Specify the installation scope (`workspace` or `user`).
 
 **Uninstall a skill:**
 Remove an installed skill from your environment.
 ```bash
-skx uninstall <package-name>
+skx uninstall <skill-name>
 ```
+- `<skill-name>`: The name or package name of the skill to remove.
 - `-a, --agent <agent>`: **(Required)** Specify the agent.
 - `-s, --scope <scope>`: **(Required)** Specify the scope (`workspace` or `user`).
 
