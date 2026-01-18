@@ -9,6 +9,10 @@ import { SkillManager } from './utils/skill-manager.js';
 import { Scope } from './types/adapter.js';
 import { spinner, select, isCancel } from '@clack/prompts';
 import path from 'path';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+const pkg = require('../package.json');
 
 export function createProgram(): Command {
   const program = new Command();
@@ -16,7 +20,7 @@ export function createProgram(): Command {
   program
     .name('skx')
     .description('A CLI tool to discover and install skills')
-    .version('1.0.0');
+    .version(pkg.version);
 
   program
     .command('list')
