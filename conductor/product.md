@@ -15,9 +15,10 @@ I want to build a cli tool called `skx` for managing Agent Skills (https://agent
 ## Core Features
 - **Dual Interface:** Support for both standard CLI arguments and an interactive TUI mode.
 - **Interactive Wizard:** A step-by-step wizard for installing and configuring skills in interactive mode.
+- **Skill Discovery:** Command to list all installed skills (`skx list`) across all detected agents and scopes.
 - **Scoped Installation:** Support for installing skills at different levels: Workspace (local to project) or User (home directory).
 - **Registry Integration:** Search and view detailed information for skills (including package names and repository URLs) hosted in the official `agentskills.io` registry.
-- **Lifecycle Management:** Manual commands for updating installed skills (`skx update`) and performing clean uninstalls that remove all associated configurations.
+- **Lifecycle Management:** Manual commands for performing clean uninstalls (`skx uninstall`) that remove all associated configurations.
 - **Extensible Adapter Architecture:** Standardized interface for supporting multiple AI agent frameworks (Gemini, Claude, Codex/Copilot) with specific installation logic for each.
 
 ## Distribution
