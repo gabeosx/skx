@@ -15,7 +15,7 @@
     - [ ] Verify lint, type-check, and test steps match `package.json` scripts.
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) [b67edf7]
 
-## Phase 3: Semantic Release & NPM Publishing
+## Phase 3: Semantic Release & NPM Publishing [checkpoint: 32f4f6d]
 - [x] Task: Install and configure `semantic-release`. [4e00585]
     - [ ] Install `semantic-release` and necessary plugins as dev dependencies.
     - [ ] Create `release.config.js` (or `.releaserc`) configuration file.
@@ -23,10 +23,10 @@
     - [ ] Create `.github/workflows/release.yml`.
     - [ ] Configure it to run on push to `main`.
     - [ ] Add steps: Checkout, Setup Node, Install, Verify CI, and Run Semantic Release.
-- [~] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md) [32f4f6d]
 
 ## Phase 4: Homebrew Tap Automation
-- [ ] Task: Create Homebrew Formula template.
+- [~] Task: Create Homebrew Formula template.
     - [ ] Add a `Formula/skx.rb` template or configure a generation script.
 - [ ] Task: Configure Semantic Release for Homebrew.
     - [ ] Add a plugin or an additional step in `release.yml` to update the `homebrew-skx` repo.
