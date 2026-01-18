@@ -20,6 +20,15 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist/', 'node_modules/'],
+    ignores: [
+      'dist/',
+      'node_modules/',
+      'coverage/',
+      'eslint.config.mjs',
+      'manual-verify-phase*.ts',
+      'verify_phase*.ts',
+      'vitest.config.ts',
+      'tests/smoke.test.js'
+    ],
   }
 );
