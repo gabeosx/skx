@@ -1,3 +1,11 @@
+## [1.1.5](https://github.com/gabeosx/skx/compare/v1.1.4...v1.1.5) (2026-01-18)
+
+
+### Bug Fixes
+
+* **ci:** add NPM_TOKEN and retry logic for brew update ([f727142](https://github.com/gabeosx/skx/commit/f72714229c8ee7fec5eb07308a74be1c7ffb2c40))
+* **lint:** ignore scripts/verification_archive directory ([aacfc6e](https://github.com/gabeosx/skx/commit/aacfc6ea41775d23ac504118bea538b2abd1639d))
+
 ## [1.1.4](https://github.com/gabeosx/skx/compare/v1.1.3...v1.1.4) (2026-01-18)
 
 
