@@ -1,7 +1,7 @@
 # skx
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/gabeosx/skx/ci.yml?branch=main)
-![License](https://img.shields.io/npm/l/skx)
+![License](https://img.shields.io/npm/l/@gabeosx/skx)
 
 **Agent Skills Manager** - The CLI tool for managing Agent Skills from the [Agent Skills Directory](https://skillindex.dev).
 
@@ -21,7 +21,7 @@
 
 ### NPM
 ```bash
-npm install -g skx
+npm install -g @gabeosx/skx
 ```
 
 ### Homebrew (macOS)
