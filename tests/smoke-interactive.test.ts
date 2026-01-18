@@ -27,6 +27,10 @@ describe('Interactive Mode Smoke Test', () => {
         console.log('Mock install called with:', args);
         return mockInstall(...args);
       };
+      installFromUrl = (...args: any[]) => {
+        console.log('Mock installFromUrl called with:', args);
+        return mockInstall(...args);
+      };
     });
   });
 

@@ -14,6 +14,7 @@ describe('Interactive UI', () => {
     vi.resetAllMocks();
     (installer.SkillInstaller as any).mockImplementation(class {
       install = vi.fn().mockResolvedValue(undefined);
+      installFromUrl = vi.fn().mockResolvedValue(undefined);
     });
   });
 

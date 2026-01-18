@@ -26,10 +26,7 @@ export async function startInteractiveMode() {
     const targetDir = await agent.getInstallationPath(scope, process.cwd());
     const installer = new SkillInstaller();
     
-    // TODO: Implement skill downloading logic. 
-    // For now, we assume the skill is already available or simulate it.
-    const dummySource = '/tmp/skx-dummy-source'; // Placeholder
-    await installer.install(dummySource, targetDir);
+    await installer.installFromUrl(skill.githubRepoUrl, targetDir);
     
     s.stop(`Successfully installed ${skill.name}!`);
     
