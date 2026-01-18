@@ -9,14 +9,14 @@
     - [ ] Create placeholder instructions for user to add `NPM_TOKEN` and `GH_TOKEN` (or `HOMEBREW_TAP_TOKEN`) to repository secrets.
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) [feae326]
 
-## Phase 2: CI Pipeline Configuration
+## Phase 2: CI Pipeline Configuration [checkpoint: b67edf7]
 - [x] Task: Refine existing CI workflow (`.github/workflows/ci.yml`). [867ca27]
     - [ ] Ensure it runs on `push` to `main` and `pull_request`.
     - [ ] Verify lint, type-check, and test steps match `package.json` scripts.
-- [~] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) [b67edf7]
 
 ## Phase 3: Semantic Release & NPM Publishing
-- [ ] Task: Install and configure `semantic-release`.
+- [~] Task: Install and configure `semantic-release`.
     - [ ] Install `semantic-release` and necessary plugins as dev dependencies.
     - [ ] Create `release.config.js` (or `.releaserc`) configuration file.
 - [ ] Task: Replace `publish.yml` with a Semantic Release workflow.
