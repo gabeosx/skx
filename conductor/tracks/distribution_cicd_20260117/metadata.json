@@ -1,0 +1,8 @@
+{
+  "track_id": "distribution_cicd_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "Create a github repo (`gh` is installed), push everything there. Make sure that the Github actions work correctly and this ends up being published to NPM, Homebrew, etc"
+}
