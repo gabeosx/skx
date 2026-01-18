@@ -6,7 +6,7 @@
 - [x] Task: Conductor - User Manual Verification 'Project Foundation' (Protocol in workflow.md) [4a68e13]
 
 ## Phase 2: CI Quality Gate
-- [ ] Task: Create GitHub Actions workflow for PR checks (lint, type-check, test).
+- [x] Task: Create GitHub Actions workflow for PR checks (lint, type-check, test). [949f551]
 - [ ] Task: Verify the PR workflow by triggering it with a test commit.
 - [ ] Task: Conductor - User Manual Verification 'CI Quality Gate' (Protocol in workflow.md)
 
