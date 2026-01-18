@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/gabeosx/skx/compare/v1.1.5...v1.1.6) (2026-01-18)
+
+
+### Bug Fixes
+
+* **cli:** dynamic version from package.json ([cefe53b](https://github.com/gabeosx/skx/commit/cefe53b99e45034f5d4fb81180284c529d80ae63))
+
 ## [1.1.5](https://github.com/gabeosx/skx/compare/v1.1.4...v1.1.5) (2026-01-18)
 
 
