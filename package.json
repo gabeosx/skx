@@ -1,6 +1,6 @@
 {
   "name": "@gabeosx/skx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The CLI tool for managing Agent Skills",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

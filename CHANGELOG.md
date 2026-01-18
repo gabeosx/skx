@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/gabeosx/skx/compare/v1.0.0...v1.0.1) (2026-01-18)
+
+
+### Bug Fixes
+
+* **release:** Bump version to 1.0.1 to resolve NPM conflict ([4ccf790](https://github.com/gabeosx/skx/commit/4ccf790acd0b19561cdd86f228d04dc1e0882c51))
+
 # 1.0.0 (2026-01-18)
 
 
