@@ -31,6 +31,26 @@ jobs:
         run: npm run lint && npm run build && npm test
 
       - name: Semantic Release
+        id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+
+      - name: Get Version
+        id: get_version
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
+
+      - name: Bump Homebrew formula
+        uses: mislav/bump-homebrew-formula-action@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          formula-name: skx
+          homebrew-tap: gabeosx/homebrew-skx
+          base-branch: main
+          download-url: https://registry.npmjs.org/skx/-/skx-${{ steps.get_version.outputs.version }}.tgz
+          commit-message: |
+            Update skx to {{version}}
+
+            Created by GitHub Actions
+        env:
+          COMMITTER_TOKEN: ${{ secrets.GH_TOKEN }}
