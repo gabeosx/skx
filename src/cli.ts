@@ -161,5 +161,41 @@ export function createProgram(): Command {
       }
     });
 
+  program
+    .command('uninstall')
+    .description('Uninstall a skill')
+    .argument('<skill-name>', 'Name of the skill to uninstall')
+    .requiredOption('-a, --agent <agent>', 'Agent name (required)')
+    .requiredOption('-s, --scope <type>', 'Scope (workspace/user) (required)')
+    .action(async (skillName, options) => {
+      const s = spinner();
+      let spinnerStarted = false;
+      try {
+        const resolver = new FrameworkResolver();
+        const adapter = await resolver.resolve(process.cwd(), options.agent);
+
+        const scope = options.scope === 'user' ? Scope.User : Scope.Workspace;
+        
+        s.start(`Uninstalling ${skillName}...`);
+        spinnerStarted = true;
+
+        await adapter.uninstallSkill(scope, skillName, process.cwd());
+        
+        s.stop(`Successfully uninstalled ${skillName}`);
+        spinnerStarted = false;
+
+      } catch (error) {
+        if (spinnerStarted) {
+          s.stop('Uninstallation failed.', 1);
+        }
+        if (error instanceof Error) {
+          console.error(chalk.red(`Error: ${error.message}`));
+        } else {
+          console.error(chalk.red('An unknown error occurred.'));
+        }
+        process.exitCode = 1;
+      }
+    });
+
   return program;
 }
