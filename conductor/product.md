@@ -22,4 +22,4 @@ I want to build a cli tool called `skx` for managing Agent Skills (https://agent
 - **Extensible Adapter Architecture:** Standardized interface for supporting multiple AI agent frameworks (Gemini, Claude, Codex/Copilot) with specific installation logic for each.
 
 ## Distribution
-- The tool will be available for installation via NPM and Homebrew.
+- The tool is distributed via NPM as `@gabeosx/skx` and via Homebrew through the `gabeosx/skx` tap.
