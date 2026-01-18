@@ -19,10 +19,10 @@
     - [x] Define command with flags: `-a, --agent <agent>` and `-s, --scope <scope>`.
     - [x] Implement logic to call `SkillManager` based on flags.
     - [x] Format output with clear headers grouping by Agent and Scope.
-- [ ] Task: Implement `skx uninstall` command using Commander.js.
-    - [ ] Define command with required flags: `-a, --agent <agent>` and `-s, --scope <scope>`.
-    - [ ] Add validation to ensure flags are present.
-    - [ ] Implement logic to call `adapter.uninstallSkill`.
+- [x] Task: Implement `skx uninstall` command using Commander.js. 1e52ce9
+    - [x] Define command with required flags: `-a, --agent <agent>` and `-s, --scope <scope>`.
+    - [x] Add validation to ensure flags are present.
+    - [x] Implement logic to call `adapter.uninstallSkill`.
 
 ## Phase 3: Testing & Verification
 - [ ] Task: Write Unit Tests for `list` command logic.
