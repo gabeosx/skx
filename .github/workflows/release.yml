@@ -40,16 +40,58 @@ jobs:
         id: get_version
         run: echo "version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
 
-      - name: Bump Homebrew formula
-        uses: mislav/bump-homebrew-formula-action@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          formula-name: skx
-          homebrew-tap: gabeosx/homebrew-skx
-          download-url: https://registry.npmjs.org/@gabeosx/skx/-/skx-${{ steps.get_version.outputs.version }}.tgz
-          commit-message: |
-            Update skx to {{version}}
-
-            Created by GitHub Actions
+      - name: Update Homebrew Formula
         env:
-          COMMITTER_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          VERSION: ${{ steps.get_version.outputs.version }}
+        run: |
+          # 1. Setup git
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          
+          # 2. Clone the tap
+          git clone https://x-access-token:$GH_TOKEN@github.com/gabeosx/homebrew-skx.git homebrew-tap
+          cd homebrew-tap
+          
+          # 3. Calculate SHA256 of the NPM package
+          TARBALL_URL="https://registry.npmjs.org/@gabeosx/skx/-/skx-$VERSION.tgz"
+          echo "Fetching $TARBALL_URL..."
+          curl -L -o package.tgz "$TARBALL_URL"
+          SHA256=$(sha256sum package.tgz | awk '{print $1}')
+          echo "SHA256: $SHA256"
+          
+          # 4. Update Formula/skx.rb
+          # Ensure Formula directory exists in the tap
+          mkdir -p Formula
+          
+          # If formula doesn't exist, we'll need to create it (unlikely here but good for robustness)
+          if [ ! -f Formula/skx.rb ]; then
+            cat <<EOF > Formula/skx.rb
+class Skx < Formula
+  desc "The CLI tool for managing Agent Skills"
+  homepage "https://github.com/gabeosx/skx"
+  url "$TARBALL_URL"
+  sha256 "$SHA256"
+  license "ISC"
+
+  depends_on "node"
+
+  def install
+    system "npm", "install", *std_npm_args
+    bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/skx --version")
+  end
+end
+EOF
+          else
+            sed -i "s|url \".*\"|url \"$TARBALL_URL\"|" Formula/skx.rb
+            sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" Formula/skx.rb
+          fi
+          
+          # 5. Commit and Push
+          git add Formula/skx.rb
+          git commit -m "chore(release): Update skx to $VERSION" || echo "No changes to commit"
+          git push
