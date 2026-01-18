@@ -16,4 +16,19 @@ describe('Project Foundation', () => {
       expect(content).toContain('node_modules');
     }
   });
+
+  it('should have a README.md file', () => {
+    const readmePath = path.resolve(__dirname, '../README.md');
+    expect(fs.existsSync(readmePath)).toBe(true);
+  });
+
+  it('should have correct sections in README.md', () => {
+    const readmePath = path.resolve(__dirname, '../README.md');
+    if (fs.existsSync(readmePath)) {
+      const content = fs.readFileSync(readmePath, 'utf-8');
+      expect(content).toContain('# skx');
+      expect(content).toContain('Installation');
+      expect(content).toContain('Usage');
+    }
+  });
 });
