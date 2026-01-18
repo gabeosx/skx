@@ -49,22 +49,22 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           
-          # 2. Clone the tap
-          git clone https://x-access-token:$GH_TOKEN@github.com/gabeosx/homebrew-skx.git homebrew-tap
-          cd homebrew-tap
-          
-          # 3. Calculate SHA256 of the NPM package
+          # 2. Calculate SHA256 of the NPM package
           TARBALL_URL="https://registry.npmjs.org/@gabeosx/skx/-/skx-$VERSION.tgz"
           echo "Fetching $TARBALL_URL..."
           curl -L -o package.tgz "$TARBALL_URL"
           SHA256=$(sha256sum package.tgz | awk '{print $1}')
           echo "SHA256: $SHA256"
           
-          # 4. Update Formula/skx.rb
-          # Ensure Formula directory exists
-          mkdir -p Formula
+          # 3. Clone the tap
+          git clone https://x-access-token:$GH_TOKEN@github.com/gabeosx/homebrew-skx.git homebrew-tap
           
-          # We'll update the existing file. If it doesn't exist, we'll fail fast which is better than broken syntax.
+          # 4. Update the Formula in the tap
+          mkdir -p homebrew-tap/Formula
+          # Copy from source repo to tap repo
+          cp Formula/skx.rb homebrew-tap/Formula/skx.rb
+          
+          cd homebrew-tap
           sed -i "s|url \".*\"|url \"$TARBALL_URL\"|" Formula/skx.rb
           sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" Formula/skx.rb
           
