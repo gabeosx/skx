@@ -3,9 +3,9 @@
 ## Phase 1: Repository & Environment Setup
 - [x] Task: Create public GitHub repository `skx` using `gh` CLI. [4d6794c]
     - [ ] Initialize repo and set remote `origin`.
-- [~] Task: Create public GitHub repository `homebrew-skx` using `gh` CLI.
+- [x] Task: Create public GitHub repository `homebrew-skx` using `gh` CLI. [6e4aec2]
     - [ ] Initialize with a basic README.
-- [ ] Task: Configure repository secrets.
+- [~] Task: Configure repository secrets.
     - [ ] Create placeholder instructions for user to add `NPM_TOKEN` and `GH_TOKEN` (or `HOMEBREW_TAP_TOKEN`) to repository secrets.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
