@@ -26,12 +26,12 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md) [32f4f6d]
 
 ## Phase 4: Homebrew Tap Automation
-- [~] Task: Create Homebrew Formula template.
+- [x] Task: Create Homebrew Formula template. [86792eb]
     - [ ] Add a `Formula/skx.rb` template or configure a generation script.
-- [ ] Task: Configure Semantic Release for Homebrew.
+- [x] Task: Configure Semantic Release for Homebrew. [86792eb]
     - [ ] Add a plugin or an additional step in `release.yml` to update the `homebrew-skx` repo.
     - [ ] Alternatively, use a dedicated action (like `mislav/bump-homebrew-formula-action`) triggered after a successful release.
-- [ ] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
 
 ## Phase 5: Final Integration & Push
 - [ ] Task: Commit all local changes (workflow files, config).
