@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Command, Option } from 'commander';
 import chalk from 'chalk';
 import { fetchRegistry } from './utils/registry.js';

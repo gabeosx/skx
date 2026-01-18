@@ -2,6 +2,7 @@ import { intro, outro, cancel, spinner } from '@clack/prompts';
 import { runWizard } from './wizard.js';
 import { SkillInstaller } from './utils/skill-installer.js';
 import chalk from 'chalk';
+import path from 'path';
 export async function startInteractiveMode() {
     intro(chalk.inverse(' skx '));
     try {
@@ -17,12 +18,10 @@ export async function startInteractiveMode() {
         // For now, we simulate the installation using the installer.
         // The installer expects sourceDir and targetDir.
         // We need to resolve the target directory using the adapter.
-        const targetDir = await agent.getInstallationPath(scope, process.cwd());
+        const basePath = await agent.getInstallationPath(scope, process.cwd());
+        const targetDir = path.join(basePath, skill.packageName);
         const installer = new SkillInstaller();
-        // TODO: Implement skill downloading logic. 
-        // For now, we assume the skill is already available or simulate it.
-        const dummySource = '/tmp/skx-dummy-source'; // Placeholder
-        await installer.install(dummySource, targetDir);
+        await installer.installFromUrl(skill.githubRepoUrl, targetDir);
         s.stop(`Successfully installed ${skill.name}!`);
         console.log(chalk.bold('\nPost-Installation Instructions:'));
         console.log(agent.getPostInstallInstructions());

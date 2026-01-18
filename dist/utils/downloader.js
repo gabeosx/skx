@@ -2,6 +2,7 @@ import tiged from 'tiged';
 export class Downloader {
     static async download(url, targetDir) {
         const source = this.parseUrl(url);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const emitter = tiged(source, {
             cache: false,

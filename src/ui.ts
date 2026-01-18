@@ -2,6 +2,7 @@ import { intro, outro, cancel, spinner } from '@clack/prompts';
 import { runWizard } from './wizard.js';
 import { SkillInstaller } from './utils/skill-installer.js';
 import chalk from 'chalk';
+import path from 'path';
 
 export async function startInteractiveMode() {
   intro(chalk.inverse(' skx '));
@@ -23,7 +24,8 @@ export async function startInteractiveMode() {
     // The installer expects sourceDir and targetDir.
     // We need to resolve the target directory using the adapter.
     
-    const targetDir = await agent.getInstallationPath(scope, process.cwd());
+    const basePath = await agent.getInstallationPath(scope, process.cwd());
+    const targetDir = path.join(basePath, skill.packageName);
     const installer = new SkillInstaller();
     
     await installer.installFromUrl(skill.githubRepoUrl, targetDir);

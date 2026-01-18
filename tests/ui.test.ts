@@ -4,6 +4,7 @@ import * as wizard from '../src/wizard.js';
 import * as clack from '@clack/prompts';
 import * as installer from '../src/utils/skill-installer.js';
 import { Scope } from '../src/types/adapter.js';
+import path from 'path';
 
 vi.mock('@clack/prompts');
 vi.mock('../src/wizard.js');
@@ -28,6 +29,12 @@ describe('Interactive UI', () => {
       scope: Scope.Workspace,
     });
 
+    const installFromUrlMock = vi.fn().mockResolvedValue(undefined);
+    (installer.SkillInstaller as any).mockImplementation(class {
+      install = vi.fn().mockResolvedValue(undefined);
+      installFromUrl = installFromUrlMock;
+    });
+
     vi.mocked(clack.spinner).mockReturnValue({
       start: vi.fn(),
       stop: vi.fn(),
@@ -38,6 +45,8 @@ describe('Interactive UI', () => {
 
     expect(clack.intro).toHaveBeenCalled();
     expect(wizard.runWizard).toHaveBeenCalled();
+    // Verify path includes package name
+    expect(installFromUrlMock).toHaveBeenCalledWith('url', expect.stringContaining(path.join('/tmp', 'test-pkg')));
     expect(clack.outro).toHaveBeenCalled();
   });
 
