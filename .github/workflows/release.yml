@@ -61,35 +61,12 @@ jobs:
           echo "SHA256: $SHA256"
           
           # 4. Update Formula/skx.rb
-          # Ensure Formula directory exists in the tap
+          # Ensure Formula directory exists
           mkdir -p Formula
           
-          # If formula doesn't exist, we'll need to create it (unlikely here but good for robustness)
-          if [ ! -f Formula/skx.rb ]; then
-            cat <<EOF > Formula/skx.rb
-class Skx < Formula
-  desc "The CLI tool for managing Agent Skills"
-  homepage "https://github.com/gabeosx/skx"
-  url "$TARBALL_URL"
-  sha256 "$SHA256"
-  license "ISC"
-
-  depends_on "node"
-
-  def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
-  end
-
-  test do
-    assert_match version.to_s, shell_output("#{bin}/skx --version")
-  end
-end
-EOF
-          else
-            sed -i "s|url \".*\"|url \"$TARBALL_URL\"|" Formula/skx.rb
-            sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" Formula/skx.rb
-          fi
+          # We'll update the existing file. If it doesn't exist, we'll fail fast which is better than broken syntax.
+          sed -i "s|url \".*\"|url \"$TARBALL_URL\"|" Formula/skx.rb
+          sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" Formula/skx.rb
           
           # 5. Commit and Push
           git add Formula/skx.rb
