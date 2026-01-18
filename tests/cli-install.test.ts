@@ -53,7 +53,7 @@ describe('CLI install command', () => {
     expect(SkillInstaller.prototype.installFromUrl).toHaveBeenCalledWith('https://github.com/test/skill', '/mock/path/@test/skill');
   });
 
-  it('should accept --framework and --scope flags', async () => {
+  it('should accept --agent and --scope flags', async () => {
     const program = createProgram();
     program.exitOverride();
     
@@ -66,7 +66,7 @@ describe('CLI install command', () => {
     (FrameworkResolver.prototype.resolve as any).mockResolvedValue(mockAdapter);
     (SkillInstaller.prototype.installFromUrl as any).mockResolvedValue(undefined);
 
-    await program.parseAsync(['node', 'test', 'install', 'test-skill', '--framework', 'claude', '--scope', 'user']);
+    await program.parseAsync(['node', 'test', 'install', 'test-skill', '--agent', 'claude', '--scope', 'user']);
 
     expect(FrameworkResolver.prototype.resolve).toHaveBeenCalledWith(expect.any(String), 'claude');
     expect(mockAdapter.getInstallationPath).toHaveBeenCalledWith(Scope.User, expect.any(String));

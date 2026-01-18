@@ -26,10 +26,10 @@ async function run() {
     // However, we can just run it against the real registry if we want!
     
     try {
-        // We'll pass the framework explicitly to avoid detection issues in a temp dir
+        // We'll pass the agent explicitly to avoid detection issues in a temp dir
         await program.parseAsync([
             'node', 'test', 'install', 'pptx', 
-            '--framework', 'gemini', 
+            '--agent', 'gemini', 
             '--scope', 'workspace'
         ], { from: 'user' });
         

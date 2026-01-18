@@ -86,9 +86,9 @@ export function createProgram(): Command {
 
   program
     .command('install')
-    .description('Install a skill for your AI agent framework')
+    .description('Install a skill for your AI agent')
     .argument('<skill-name>', 'Name of the skill to install')
-    .addOption(new Option('-f, --framework <name>', 'Explicitly specify the agent framework (e.g., gemini, claude, codex)'))
+    .addOption(new Option('-a, --agent <name>', 'Explicitly specify the agent (e.g., gemini, claude, codex)'))
     .addOption(new Option('-s, --scope <type>', 'Installation scope').choices(['workspace', 'user']))
     .action(async (skillName, options) => {
       const s = spinner();
@@ -128,7 +128,7 @@ export function createProgram(): Command {
 
         // 3. Resolve Framework
         const resolver = new FrameworkResolver();
-        const adapter = await resolver.resolve(process.cwd(), options.framework);
+        const adapter = await resolver.resolve(process.cwd(), options.agent);
         
         // 4. Determine Paths
         const scope = scopeType === 'user' ? Scope.User : Scope.Workspace;

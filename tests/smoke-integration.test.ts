@@ -42,9 +42,11 @@ describe('CLI Integration Smoke Tests', () => {
     vi.spyOn(fs, 'ensureDir').mockResolvedValue(undefined as any);
 
     await program.parseAsync([
-      'node', 'test', 'install', 'test-skill', 
-      '--framework', 'gemini', 
-      '--scope', 'workspace'
+      'node', 'skx', 'install', 'test-skill',
+      '--agent',
+      'gemini',
+      '--scope',
+      'workspace'
     ]);
 
     expect(Downloader.download).toHaveBeenCalledWith('https://github.com/test/skill', expect.any(String));

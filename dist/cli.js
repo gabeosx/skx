@@ -4,6 +4,7 @@ import { fetchRegistry } from './utils/registry.js';
 import { searchSkills } from './utils/search.js';
 import { FrameworkResolver } from './utils/framework-resolver.js';
 import { SkillInstaller } from './utils/skill-installer.js';
+import { SkillManager } from './utils/skill-manager.js';
 import { Scope } from './types/adapter.js';
 import { spinner, select, isCancel } from '@clack/prompts';
 import path from 'path';
@@ -13,6 +14,40 @@ export function createProgram() {
         .name('skx')
         .description('A CLI tool to discover and install skills')
         .version('1.0.0');
+    program
+        .command('list')
+        .description('List installed skills')
+        .addOption(new Option('-a, --agent <agent>', 'Filter by agent (e.g., gemini, claude, codex)'))
+        .addOption(new Option('-s, --scope <type>', 'Filter by scope').choices(['workspace', 'user']))
+        .action(async (options) => {
+        try {
+            const manager = new SkillManager();
+            const skillsMap = await manager.detectInstalledSkills({
+                agent: options.agent,
+                scope: options.scope
+            });
+            if (skillsMap.size === 0) {
+                console.log(chalk.yellow('No installed skills found.'));
+                return;
+            }
+            console.log(chalk.bold('Installed Skills:'));
+            for (const [key, skills] of skillsMap.entries()) {
+                console.log(`\n${chalk.blue.bold(key)}`);
+                skills.forEach(skill => {
+                    console.log(`  ${skill}`);
+                });
+            }
+        }
+        catch (error) {
+            if (error instanceof Error) {
+                console.error(chalk.red(`Error: ${error.message}`));
+            }
+            else {
+                console.error(chalk.red('An unknown error occurred.'));
+            }
+            process.exitCode = 1;
+        }
+    });
     program
         .command('search')
         .description('Search for skills')
@@ -102,6 +137,38 @@ export function createProgram() {
         catch (error) {
             if (spinnerStarted) {
                 s.stop('Installation failed.', 1);
+            }
+            if (error instanceof Error) {
+                console.error(chalk.red(`Error: ${error.message}`));
+            }
+            else {
+                console.error(chalk.red('An unknown error occurred.'));
+            }
+            process.exitCode = 1;
+        }
+    });
+    program
+        .command('uninstall')
+        .description('Uninstall a skill')
+        .argument('<skill-name>', 'Name of the skill to uninstall')
+        .requiredOption('-a, --agent <agent>', 'Agent name (required)')
+        .requiredOption('-s, --scope <type>', 'Scope (workspace/user) (required)')
+        .action(async (skillName, options) => {
+        const s = spinner();
+        let spinnerStarted = false;
+        try {
+            const resolver = new FrameworkResolver();
+            const adapter = await resolver.resolve(process.cwd(), options.agent);
+            const scope = options.scope === 'user' ? Scope.User : Scope.Workspace;
+            s.start(`Uninstalling ${skillName}...`);
+            spinnerStarted = true;
+            await adapter.uninstallSkill(scope, skillName, process.cwd());
+            s.stop(`Successfully uninstalled ${skillName}`);
+            spinnerStarted = false;
+        }
+        catch (error) {
+            if (spinnerStarted) {
+                s.stop('Uninstallation failed.', 1);
             }
             if (error instanceof Error) {
                 console.error(chalk.red(`Error: ${error.message}`));

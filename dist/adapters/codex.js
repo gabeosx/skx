@@ -26,4 +26,39 @@ To use the installed skill with GitHub Copilot/Codex:
 2. Restart your editor or Copilot agent if necessary.
 `.trim();
     }
+    async listSkills(scope, cwd) {
+        const installPath = await this.getInstallationPath(scope, cwd);
+        if (!await fs.pathExists(installPath)) {
+            return [];
+        }
+        const entries = await fs.readdir(installPath, { withFileTypes: true });
+        const skills = [];
+        for (const entry of entries) {
+            if (entry.isDirectory()) {
+                if (entry.name.startsWith('@')) {
+                    // Handle scoped packages
+                    const scopePath = path.join(installPath, entry.name);
+                    const scopeEntries = await fs.readdir(scopePath, { withFileTypes: true });
+                    for (const scopeEntry of scopeEntries) {
+                        if (scopeEntry.isDirectory()) {
+                            skills.push(`${entry.name}/${scopeEntry.name}`);
+                        }
+                    }
+                }
+                else if (!entry.name.startsWith('.')) {
+                    skills.push(entry.name);
+                }
+            }
+        }
+        return skills.sort();
+    }
+    async uninstallSkill(scope, packageName, cwd) {
+        const installPath = await this.getInstallationPath(scope, cwd);
+        const skillPath = path.join(installPath, packageName);
+        // Safety check: Ensure we are deleting something inside the installPath
+        if (!skillPath.startsWith(installPath)) {
+            throw new Error('Invalid skill path');
+        }
+        await fs.remove(skillPath);
+    }
 }
