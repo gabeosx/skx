@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/gabeosx/skx/compare/v1.0.1...v1.0.2) (2026-01-18)
+
+
+### Bug Fixes
+
+* **release:** Remove base-branch to let homebrew action auto-detect ([f6ee5c2](https://github.com/gabeosx/skx/commit/f6ee5c2767e5d6b79eb61282b12d6ac50a648f9f))
+
 ## [1.0.1](https://github.com/gabeosx/skx/compare/v1.0.0...v1.0.1) (2026-01-18)
 
 
