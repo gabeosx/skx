@@ -36,5 +36,5 @@
 ## Phase 5: Final Integration & Push
 - [x] Task: Commit all local changes (workflow files, config). [357fa3d]
 - [x] Task: Push local `main` branch to the new GitHub `skx` repository. [147787d]
-- [~] Task: Verify the first run of the pipeline on GitHub.
-- [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
+- [x] Task: Verify the first run of the pipeline on GitHub. [595220b]
+- [~] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
