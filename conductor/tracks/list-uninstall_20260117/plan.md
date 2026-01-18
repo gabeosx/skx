@@ -1,6 +1,6 @@
 # Implementation Plan - List and Uninstall Commands
 
-## Phase 1: Core Logic & Adapters
+## Phase 1: Core Logic & Adapters [checkpoint: c7a1139]
 - [x] Task: Update `Adapter` interface to support listing and uninstalling skills. e9d99e2
     - [x] Add `listSkills(scope: Scope): Promise<string[]>` to `Adapter` interface.
     - [x] Add `uninstallSkill(scope: Scope, packageName: string): Promise<void>` to `Adapter` interface.
