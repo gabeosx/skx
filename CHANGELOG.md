@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/gabeosx/skx/compare/v1.1.0...v1.1.1) (2026-01-18)
+
+
+### Bug Fixes
+
+* **release:** Use local formula as template for Homebrew update ([d6e9ceb](https://github.com/gabeosx/skx/commit/d6e9ceb2dadd6ae03f2a4654d9d00a1bc6517a78))
+
 # [1.1.0](https://github.com/gabeosx/skx/compare/v1.0.2...v1.1.0) (2026-01-18)
 
 
