@@ -12,6 +12,6 @@
 
 ## Phase 3: Automated Distribution [checkpoint: f9f8f17]
 - [x] Task: Configure `package.json` for publishing (files, bin, repository, etc.). [f71dbc9]
-- [ ] Task: Create GitHub Actions workflow for NPM publishing on release.
+- [x] Task: Create GitHub Actions workflow for NPM publishing on release. [166ad49]
 - [ ] Task: Create/Configure Homebrew formula update logic in the release workflow.
 - [ ] Task: Conductor - User Manual Verification 'Automated Distribution' (Protocol in workflow.md)
