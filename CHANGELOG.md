@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/gabeosx/skx/compare/v1.1.1...v1.1.2) (2026-01-18)
+
+
+### Bug Fixes
+
+* **cli:** Add missing shebang for executable ([181902e](https://github.com/gabeosx/skx/commit/181902e924ed12435f87b86845162602ce7c75a2))
+
 ## [1.1.1](https://github.com/gabeosx/skx/compare/v1.1.0...v1.1.1) (2026-01-18)
 
 
