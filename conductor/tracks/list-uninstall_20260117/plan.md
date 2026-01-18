@@ -15,10 +15,10 @@
     - [x] Implement `detectInstalledSkills(filter?: { agent?: string, scope?: string })` to scan all locations.
 
 ## Phase 2: CLI Commands Implementation
-- [ ] Task: Implement `skx list` command using Commander.js.
-    - [ ] Define command with flags: `-a, --agent <agent>` and `-s, --scope <scope>`.
-    - [ ] Implement logic to call `SkillManager` based on flags.
-    - [ ] Format output with clear headers grouping by Agent and Scope.
+- [x] Task: Implement `skx list` command using Commander.js. 0944817
+    - [x] Define command with flags: `-a, --agent <agent>` and `-s, --scope <scope>`.
+    - [x] Implement logic to call `SkillManager` based on flags.
+    - [x] Format output with clear headers grouping by Agent and Scope.
 - [ ] Task: Implement `skx uninstall` command using Commander.js.
     - [ ] Define command with required flags: `-a, --agent <agent>` and `-s, --scope <scope>`.
     - [ ] Add validation to ensure flags are present.
