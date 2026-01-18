@@ -5,9 +5,9 @@
     - [ ] Initialize repo and set remote `origin`.
 - [x] Task: Create public GitHub repository `homebrew-skx` using `gh` CLI. [6e4aec2]
     - [ ] Initialize with a basic README.
-- [~] Task: Configure repository secrets.
+- [x] Task: Configure repository secrets. [30a0e65]
     - [ ] Create placeholder instructions for user to add `NPM_TOKEN` and `GH_TOKEN` (or `HOMEBREW_TAP_TOKEN`) to repository secrets.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: CI Pipeline Configuration
 - [ ] Task: Refine existing CI workflow (`.github/workflows/ci.yml`).
