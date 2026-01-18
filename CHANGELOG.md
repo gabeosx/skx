@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/gabeosx/skx/compare/v1.1.3...v1.1.4) (2026-01-18)
+
+
+### Bug Fixes
+
+* ensure skills are installed in subdirectories during interactive install ([a3bfd09](https://github.com/gabeosx/skx/commit/a3bfd09d2142fe42071bb95a38c18779f829354f))
+
 ## [1.1.3](https://github.com/gabeosx/skx/compare/v1.1.2...v1.1.3) (2026-01-18)
 
 
