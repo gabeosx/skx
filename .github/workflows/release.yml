@@ -46,7 +46,6 @@ jobs:
         with:
           formula-name: skx
           homebrew-tap: gabeosx/homebrew-skx
-          base-branch: main
           download-url: https://registry.npmjs.org/@gabeosx/skx/-/skx-${{ steps.get_version.outputs.version }}.tgz
           commit-message: |
             Update skx to {{version}}
