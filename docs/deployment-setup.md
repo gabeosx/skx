@@ -6,6 +6,7 @@ To enable the automated CI/CD pipeline, you need to configure authentication for
 This method uses OpenID Connect (OIDC) to authenticate with NPM without managing long-lived secrets.
 
 1.  **Log in to npmjs.com** and navigate to your package settings (or create the package first if it doesn't exist).
+    *   *Note:* The package name is configured as `@gabeosx/skx` in `package.json`. You may need to create this organization scope or rename the package if you don't own it.
 2.  Go to **Settings** -> **Publishing Access**.
 3.  Under **Provenance** (optional but recommended), enable "Generate provenance on publish".
 4.  Under **Trusted Publishing**, click **Connect a GitHub repository**.
