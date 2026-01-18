@@ -41,28 +41,39 @@ skx
 ### CLI Commands
 
 **List installed skills:**
+List all skills installed for a specific agent or across all detected environments.
 ```bash
 skx list
 ```
+- `-a, --agent <agent>`: Filter by agent (e.g., `gemini`, `claude`, `codex`).
+- `-s, --scope <scope>`: Filter by scope (`workspace` or `user`).
 
 **Search for skills:**
+Search the Agent Skills Directory for available skills.
 ```bash
 skx search <query>
 ```
 
 **Install a skill:**
+Install a skill from the registry. If flags are omitted, the CLI will guide you through the process.
 ```bash
 skx install <package-name>
 ```
-
-**Flags:**
-- `-a, --agent <agent>`: Explicitly specify the AI agent (e.g., `gemini`, `claude`, `codex`).
+- `-a, --agent <agent>`: Explicitly specify the AI agent.
 - `-s, --scope <scope>`: Specify the installation scope (`workspace` or `user`).
 
 **Uninstall a skill:**
+Remove an installed skill from your environment.
 ```bash
 skx uninstall <package-name>
 ```
+- `-a, --agent <agent>`: **(Required)** Specify the agent.
+- `-s, --scope <scope>`: **(Required)** Specify the scope (`workspace` or `user`).
+
+**General Flags:**
+- `-h, --help`: Display help for command.
+- `-V, --version`: Output the version number.
+
 
 ## Contributing
 
