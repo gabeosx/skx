@@ -11,7 +11,7 @@
 - [x] Task: Conductor - User Manual Verification 'CI Quality Gate' (Protocol in workflow.md) [f9f8f17]
 
 ## Phase 3: Automated Distribution [checkpoint: f9f8f17]
-- [ ] Task: Configure `package.json` for publishing (files, bin, repository, etc.).
+- [x] Task: Configure `package.json` for publishing (files, bin, repository, etc.). [f71dbc9]
 - [ ] Task: Create GitHub Actions workflow for NPM publishing on release.
 - [ ] Task: Create/Configure Homebrew formula update logic in the release workflow.
 - [ ] Task: Conductor - User Manual Verification 'Automated Distribution' (Protocol in workflow.md)
