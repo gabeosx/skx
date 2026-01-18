@@ -1,16 +1,39 @@
 {
   "name": "skx",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The CLI tool for managing Agent Skills (agentskills.io)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "skx": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "start": "node dist/index.js",
+    "start": "node dist/cli.js",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "agent",
+    "skills",
+    "ai",
+    "cli",
+    "gemini",
+    "claude",
+    "codex"
+  ],
+  "author": "Gabe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabeosx/skx.git"
+  },
   "license": "ISC",
   "type": "module",
   "dependencies": {
