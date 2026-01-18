@@ -10,10 +10,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) [feae326]
 
 ## Phase 2: CI Pipeline Configuration
-- [~] Task: Refine existing CI workflow (`.github/workflows/ci.yml`).
+- [x] Task: Refine existing CI workflow (`.github/workflows/ci.yml`). [867ca27]
     - [ ] Ensure it runs on `push` to `main` and `pull_request`.
     - [ ] Verify lint, type-check, and test steps match `package.json` scripts.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3: Semantic Release & NPM Publishing
 - [ ] Task: Install and configure `semantic-release`.
