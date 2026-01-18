@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/gabeosx/skx/compare/v1.1.2...v1.1.3) (2026-01-18)
+
+
+### Bug Fixes
+
+* correct CLI entry point and interactive mode installation logic ([3336488](https://github.com/gabeosx/skx/commit/33364880fecbb2fd67867c21ec4409cbce6d7a3f))
+
 ## [1.1.2](https://github.com/gabeosx/skx/compare/v1.1.1...v1.1.2) (2026-01-18)
 
 
