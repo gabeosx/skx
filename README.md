@@ -55,6 +55,10 @@ skx search <query>
 skx install <package-name>
 ```
 
+**Flags:**
+- `-a, --agent <agent>`: Explicitly specify the AI agent (e.g., `gemini`, `claude`, `codex`).
+- `-s, --scope <scope>`: Specify the installation scope (`workspace` or `user`).
+
 **Uninstall a skill:**
 ```bash
 skx uninstall <package-name>
