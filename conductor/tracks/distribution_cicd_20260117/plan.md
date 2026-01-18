@@ -16,14 +16,14 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) [b67edf7]
 
 ## Phase 3: Semantic Release & NPM Publishing
-- [~] Task: Install and configure `semantic-release`.
+- [x] Task: Install and configure `semantic-release`. [4e00585]
     - [ ] Install `semantic-release` and necessary plugins as dev dependencies.
     - [ ] Create `release.config.js` (or `.releaserc`) configuration file.
-- [ ] Task: Replace `publish.yml` with a Semantic Release workflow.
+- [x] Task: Replace `publish.yml` with a Semantic Release workflow. [4e00585]
     - [ ] Create `.github/workflows/release.yml`.
     - [ ] Configure it to run on push to `main`.
     - [ ] Add steps: Checkout, Setup Node, Install, Verify CI, and Run Semantic Release.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
 
 ## Phase 4: Homebrew Tap Automation
 - [ ] Task: Create Homebrew Formula template.
