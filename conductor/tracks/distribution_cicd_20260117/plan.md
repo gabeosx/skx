@@ -8,9 +8,9 @@
 ## Phase 2: CI Quality Gate
 - [x] Task: Create GitHub Actions workflow for PR checks (lint, type-check, test). [949f551]
 - [x] Task: Verify the PR workflow by triggering it with a test commit. [d37116b]
-- [ ] Task: Conductor - User Manual Verification 'CI Quality Gate' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'CI Quality Gate' (Protocol in workflow.md) [f9f8f17]
 
-## Phase 3: Automated Distribution
+## Phase 3: Automated Distribution [checkpoint: f9f8f17]
 - [ ] Task: Configure `package.json` for publishing (files, bin, repository, etc.).
 - [ ] Task: Create GitHub Actions workflow for NPM publishing on release.
 - [ ] Task: Create/Configure Homebrew formula update logic in the release workflow.
