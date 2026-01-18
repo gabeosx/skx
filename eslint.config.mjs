@@ -25,6 +25,7 @@ export default tseslint.config(
       'node_modules/',
       'coverage/',
       'eslint.config.mjs',
+      'release.config.js',
       'manual-verify-phase*.ts',
       'verify_phase*.ts',
       'vitest.config.ts',
